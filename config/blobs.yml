@@ -1,1 +1,25 @@
---- {}
+---
+libpcap-1.7.4.tar.gz:
+  object_id: 0df388a9-4e22-4277-bf68-45ea5638aa43
+  sha: 3f31a7706c1487fca36b8379e511965a8d7cbd70
+  size: 663021
+snort-2.9.8.2.tar.gz:
+  object_id: 551bc44e-a7cd-4bbd-83df-8e5f5ecb1ff6
+  sha: ac344132f3e09e035a07a2c8b7d7381539d4a90f
+  size: 6311793
+pcre-8.38.tar.gz:
+  object_id: 9913770d-4c0b-4698-8ca1-17ed3946c2b5
+  sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
+  size: 2053336
+daq-2.0.6.tar.gz:
+  object_id: 3ec67049-ce4c-4141-9037-b94bea89fde3
+  sha: ec0ebfcd4568a3e4e58c774982c808c414dd71bc
+  size: 514687
+libdnet-1.12.tar.gz:
+  object_id: 7a71a9b4-5ccf-4257-a5bf-169263ccec91
+  sha: 3ce046cde6e1872ccef3920923a768e6556b4cde
+  size: 959945
+snort-conf.tar.gz:
+  object_id: d443bd45-dfeb-4086-a8e3-d35468a41101
+  sha: e84e2ddda412586c941d3ac4fd0e79966f9c217d
+  size: 274624

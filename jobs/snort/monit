@@ -1,0 +1,5 @@
+check process snort
+  with pidfile /var/vcap/sys/run/snort/snort.pid
+  start program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl start'"
+  stop program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl stop'"
+  group vcap
