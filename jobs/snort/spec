@@ -2,9 +2,12 @@
 name: snort
 packages:
 - snort
+- omprog
 templates:
+  bin/alert: bin/alert
   bin/ctl: bin/ctl
   bin/monit_debugger: bin/monit_debugger
   data/properties.sh.erb: data/properties.sh
+  config/syslog-riemann.conf: config/syslog-riemann.conf
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh

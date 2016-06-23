@@ -1,0 +1,13 @@
+---
+name: omprog
+files:
+- autoconf-2.69.tar.gz
+- automake-1.15.tar.gz
+- libtool-2.4.6.tar.gz
+- json-c-0.12.1.tar.gz
+- libuuid-1.0.3.tar.gz
+- libestr-0.1.10.tar.gz
+- pkg-config-0.28.tar.gz
+- Python-2.7.10.tgz
+- docutils-0.12.tar.gz
+- rsyslog-7.4.6.tar.gz
