@@ -10,6 +10,7 @@ jobs:
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
       OINKCODE: {{oinkcode}}
+      SNORT_VERSION: {{snort-version}}
   - task: update-blobs
     file: snort-release-source/ci/tasks/update-release.yml
     params:
