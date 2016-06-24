@@ -1,0 +1,40 @@
+---
+jobs:
+- name: make-snort-conf
+  plan:
+  - get: timer
+    trigger: true
+  - get: snort-release-source
+    trigger: true
+  - task: pulledpork
+    file: snort-release-source/ci/tasks/pulledpork.yml
+    params:
+      OINKCODE: {{oinkcode}}
+  - task: update-blobs
+    file: snort-release-source/ci/tasks/update-release.yml
+    params:
+      PRIVATE_YML: {{private-yml}}
+  - put: release-tarball
+    params:
+      file: finalized-release/snort-*.tgz
+
+resources:
+- name: timer
+  type: time
+  source:
+    interval: 1h
+
+- name: snort-release-source
+  type: git
+  source:
+    uri: {{snort-release-uri}}
+    branch: {{snort-release-branch}}
+
+- name: release-tarball
+  type: s3
+  source:
+    region_name: {{s3-bosh-releases-region}}
+    bucket: {{s3-bosh-releases-bucket}}
+    regexp: snort-(.*).tgz
+    access_key_id: {{s3-bosh-releases-access-key-id}}
+    secret_access_key: {{s3-bosh-releases-secret-access-key}}
