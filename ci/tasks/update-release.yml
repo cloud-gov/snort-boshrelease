@@ -4,13 +4,13 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: 18fgsa/
+    repository: 18fgsa/concourse-task
 
 inputs:
-- name: snort-pulledpork-source
+- name: snort-release-source
 
 outputs:
 - name: finalized-release
 
 run:
-  path: snort-pulledpork-source/ci/update-release.sh
+  path: snort-release-source/ci/tasks/update-release.sh
