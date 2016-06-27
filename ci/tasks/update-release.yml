@@ -7,10 +7,10 @@ image_resource:
     repository: 18fgsa/concourse-task
 
 inputs:
-- name: snort-release-source
+- name: snort-pulledpork-source
 
 outputs:
 - name: finalized-release
 
 run:
-  path: snort-release-source/ci/tasks/update-release.sh
+  path: snort-pulledpork-source/ci/tasks/update-release.sh

@@ -13,4 +13,4 @@ perl /opt/pulledpork-0.7.0/pulledpork.pl \
 
 cd $DIR
 
-cp -r snort-release-source snort-pulledpork-source
+cp -r snort-release-source/* snort-pulledpork-source
