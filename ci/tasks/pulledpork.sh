@@ -6,10 +6,11 @@ DIR=$(pwd)
 
 cd snort-release-source/ci/config/snort-conf
 
+sed -i.orig "s/<oinkcode>/$OINKCODE/" ../pulledpork.conf
+
 perl /opt/pulledpork-0.7.0/pulledpork.pl \
   -c ../pulledpork.conf \
-  -S $SNORT_VERSION \
-  -O $OINKCODE
+  -S $SNORT_VERSION
 
 cd $DIR
 
