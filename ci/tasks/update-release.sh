@@ -9,7 +9,7 @@ $PRIVATE_YML
 EOF
 
 bosh -n sync blobs
-tar czvf snort-conf.tar.gz ci/config/snort-conf
+tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
 if [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz | sha1sum)" ] ; then
   bosh -n add blob snort-conf.tar.gz
