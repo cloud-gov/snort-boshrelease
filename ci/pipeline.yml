@@ -15,6 +15,9 @@ jobs:
     file: snort-release-source/ci/tasks/update-release.yml
     params:
       PRIVATE_YML: {{private-yml}}
+  - put: snort-release-source
+    params:
+      repository: snort-bosh-source
   - put: release-tarball
     params:
       file: finalized-release/snort-*.tgz
@@ -30,6 +33,7 @@ resources:
   source:
     uri: {{snort-release-uri}}
     branch: {{snort-release-branch}}
+    private_key: {{snort-release-private-key}}
 
 - name: release-tarball
   type: s3
