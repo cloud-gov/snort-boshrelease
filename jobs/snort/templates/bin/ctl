@@ -16,14 +16,22 @@ case $1 in
 
     echo $$ > $PIDFILE
 
+    # Copy pulledpork cron task
+    cp /var/vcap/jobs/snort/config/schedule /etc/cron.d
+
+    # Run pulledpork
+    /var/vcap/jobs/snort/bin/pulledpork
+
+    # Link omprog module to built-in rsyslog
     ln -sf /var/vcap/packages/omprog/lib/rsyslog/omprog.so \
       /usr/local/lib/rsyslog/omprog.so
     cp /var/vcap/jobs/snort/config/syslog-riemann.conf \
       /etc/rsyslog.d/30-syslog-riemann.conf
     service rsyslog restart
 
+    # Run snort
     exec /var/vcap/packages/snort/bin/snort \
-      -c /var/vcap/packages/snort/etc/snort.conf \
+      -c /var/vcap/jobs/snort/config/snort.conf \
       -l /var/vcap/sys/log/snort \
       >>$LOG_DIR/$JOB_NAME.log 2>&1
 

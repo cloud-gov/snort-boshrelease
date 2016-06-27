@@ -1,0 +1,1 @@
+0 * * * * root /var/vcap/jobs/snort/bin/pulledpork

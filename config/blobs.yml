@@ -59,7 +59,67 @@ snort-2.9.8.2.tar.gz:
   object_id: 4ef28f7c-71d4-46b6-b328-c4752f9f465a
   sha: ac344132f3e09e035a07a2c8b7d7381539d4a90f
   size: 6311793
+Crypt-SSLeay-0.72.tar.gz:
+  object_id: fa7a5d16-a14b-475e-8947-7b64e652322a
+  sha: 1b39920947c33a88b19a9c8e61ccb135b56091f8
+  size: 129575
+HTTP-Cookies-6.01.tar.gz:
+  object_id: 67c7efbd-e8d7-468e-9d54-8240cddfaab3
+  sha: a8601a34e62666572bc8a4a98f56822b008afd17
+  size: 18751
+HTTP-Date-6.02.tar.gz:
+  object_id: b74651a1-3232-4150-9487-68cdf1f42b23
+  sha: 85f8dbcad22f2680775a185ce91a42c89e0ad2a8
+  size: 7319
+HTTP-Message-6.11.tar.gz:
+  object_id: 1e869d59-77e8-4372-a3e8-3e6002dc7670
+  sha: 74999f3f33c22f88d0b489970109b9d16eca5853
+  size: 59981
+IO-Socket-SSL-2.027.tar.gz:
+  object_id: 4da34329-bdf0-4e04-af8c-b38b930a754c
+  sha: 7c5e95027a577a7adeae5030b51606a5de4132ff
+  size: 210470
+libwww-perl-6.15.tar.gz:
+  object_id: 737d934a-b12a-4f30-8727-6981a274e80a
+  sha: 9e27f58108135b7871bbe406e39353a1dbc99462
+  size: 141936
+LWP-Protocol-https-6.04.tar.gz:
+  object_id: bf0e91da-6cb3-4f0f-af6c-a9c1c8163b9a
+  sha: 5a63cb409ff4ba34006d5a45120e7facc52dc837
+  size: 4035
+Mozilla-CA-20160104.tar.gz:
+  object_id: 0b6e4fc5-7ee8-4a4d-ac8d-a49f11c961fe
+  sha: 3f251d0eeb8e8bb3ab1c6baafe7b40245d12a9b3
+  size: 154435
+Net-HTTP-6.06.tar.gz:
+  object_id: 57ede6ba-192a-4a72-ba3e-88b55cc7d015
+  sha: d6527ec874d66c33e377a69a579ae6d66a77a5fa
+  size: 15609
+Net-SSLeay-1.74.tar.gz:
+  object_id: 673279ff-24c4-4b05-8925-75ad01bec27f
+  sha: a39a2720a9143fb61315445802249379439c164f
+  size: 387262
+Path-Class-0.36.tar.gz:
+  object_id: 67b284b0-aae1-4afa-822a-34e3d41eaea2
+  sha: b3ac1918ac5694705017ea889058255193f46879
+  size: 37033
+perl-5.24.0.tar.gz:
+  object_id: c8846ee5-78c1-4c30-a577-b455b8e52e25
+  sha: 35770ea5cf49a1082852c2300ccc3cbbc58b70fd
+  size: 17576316
+pulledpork-0.7.0.tar.gz:
+  object_id: f288823b-0da0-4ff7-a411-d5bc4469427d
+  sha: fd7f2b195b473ba80826c4f06dd6ef2dd445814e
+  size: 39294
 snort-conf.tar.gz:
-  object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
-  sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
-  size: 275266
+  object_id: 3481ff7d-754b-448f-8d6c-e7b421bc7c2a
+  sha: 7b8b5b85f8392aadd58d9e0462843656bf0b7aa8
+  size: 274444
+Try-Tiny-0.24.tar.gz:
+  object_id: 0e781621-1e9f-4fbe-bdc9-7a032fd8d850
+  sha: 3c3eef7f9c03380d21e145787103ed14fd56e153
+  size: 30666
+URI-1.71.tar.gz:
+  object_id: 17da6cc8-85d1-42ab-9b31-2fa2b0432ba7
+  sha: c609c5830899176b61100fce8f10436128471064
+  size: 100141

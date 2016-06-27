@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export PATH=/var/vcap/packages/perl/bin:$PATH
+export PERL5LIB=/var/vcap/packages/pulledpork/lib/perl5:${PERL5LIB-}
+
+/var/vcap/packages/perl/bin/perl \
+  /var/vcap/packages/pulledpork/bin/pulledpork.pl \
+  -c /var/vcap/jobs/snort/config/pulledpork.conf

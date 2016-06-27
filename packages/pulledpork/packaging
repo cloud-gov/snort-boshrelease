@@ -1,0 +1,44 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Detect # of CPUs so make jobs can be parallelized
+CPUS=$(grep -c ^processor /proc/cpuinfo)
+ # Available variables
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export HOME=/var/vcap
+
+export PATH=/var/vcap/packages/perl/bin:$PATH
+export PERL5LIB=$BOSH_INSTALL_TARGET/lib/perl5:${PERL5LIB-}
+
+function install_perl {
+  (
+    set -e
+    cd $1
+    perl Makefile.PL ${2-} INSTALL_BASE=$BOSH_INSTALL_TARGET
+    make && make install
+  )
+}
+
+tar xzf URI-1.71.tar.gz && install_perl URI-1.71
+tar xzf HTTP-Date-6.02.tar.gz && install_perl HTTP-Date-6.02
+tar xzf HTTP-Cookies-6.01.tar.gz && install_perl HTTP-Cookies-6.01
+tar xzf HTTP-Message-6.11.tar.gz && install_perl HTTP-Message-6.11
+tar xzf Try-Tiny-0.24.tar.gz && install_perl Try-Tiny-0.24
+tar xzf libwww-perl-6.15.tar.gz && install_perl libwww-perl-6.15
+tar xzf Path-Class-0.36.tar.gz && install_perl Path-Class-0.36
+tar xzf Crypt-SSLeay-0.72.tar.gz && install_perl Crypt-SSLeay-0.72 --no-live-test
+tar xzf Net-HTTP-6.06.tar.gz && install_perl Net-HTTP-6.06
+tar xzf Net-SSLeay-1.74.tar.gz && install_perl Net-SSLeay-1.74
+tar xzf IO-Socket-SSL-2.027.tar.gz && install_perl IO-Socket-SSL-2.027
+tar xzf Mozilla-CA-20160104.tar.gz && install_perl Mozilla-CA-20160104
+tar xzf LWP-Protocol-https-6.04.tar.gz && install_perl LWP-Protocol-https-6.04
+
+tar xzf pulledpork-0.7.0.tar.gz
+
+mkdir -p $BOSH_INSTALL_TARGET/bin
+cp pulledpork-0.7.0/pulledpork.pl $BOSH_INSTALL_TARGET/bin
+chmod +x $BOSH_INSTALL_TARGET/bin/pulledpork.pl
+cp pulledpork-0.7.0/etc/* $BOSH_INSTALL_TARGET
+
+echo '* "^\s*alert" "DROP"' >> $BOSH_INSTALL_TARGET/modifysid.conf

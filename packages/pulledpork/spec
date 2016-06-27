@@ -1,0 +1,19 @@
+---
+name: pulledpork
+dependencies:
+- perl
+files:
+- URI-1.71.tar.gz
+- HTTP-Date-6.02.tar.gz
+- HTTP-Cookies-6.01.tar.gz
+- HTTP-Message-6.11.tar.gz
+- Net-HTTP-6.06.tar.gz
+- Net-SSLeay-1.74.tar.gz
+- IO-Socket-SSL-2.027.tar.gz
+- Mozilla-CA-20160104.tar.gz
+- LWP-Protocol-https-6.04.tar.gz
+- Try-Tiny-0.24.tar.gz
+- libwww-perl-6.15.tar.gz
+- Path-Class-0.36.tar.gz
+- Crypt-SSLeay-0.72.tar.gz
+- pulledpork-0.7.0.tar.gz

@@ -2,12 +2,22 @@
 name: snort
 packages:
 - snort
+- perl
+- pulledpork
 - omprog
 templates:
   bin/alert: bin/alert
   bin/ctl: bin/ctl
   bin/monit_debugger: bin/monit_debugger
+  bin/pulledpork: bin/pulledpork
   data/properties.sh.erb: data/properties.sh
+  config/pulledpork.conf.erb: config/pulledpork.conf
+  config/snort.conf: config/snort.conf
+  config/schedule: config/schedule
   config/syslog-riemann.conf: config/syslog-riemann.conf
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  snort.oinkcode:
+    description: Oinkcode for proprietary rules
+    default: ""
