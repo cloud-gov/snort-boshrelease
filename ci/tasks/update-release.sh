@@ -22,6 +22,8 @@ if [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.t
   git commit -m "Update blobs."
 
   cp releases/snort/*.tgz ../finalized-release
+else
+  touch ../finalized-release/snort-dummy.tgz
 fi
 
 cp -r . ../snort-bosh-source
