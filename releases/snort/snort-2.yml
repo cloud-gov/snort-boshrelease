@@ -1,0 +1,36 @@
+---
+packages:
+- name: omprog
+  version: b3095909de264d9d5c529a56017342b81e91b665
+  fingerprint: b3095909de264d9d5c529a56017342b81e91b665
+  sha1: 05fbe2a83a0c92df380b0580fb441fc3894ebd59
+  dependencies: []
+- name: perl
+  version: e81d9a4b523d5dbd342390d6b24644c0fac05edb
+  fingerprint: e81d9a4b523d5dbd342390d6b24644c0fac05edb
+  sha1: b7a2aad44768a5dbc3205dd80d537726af755ad4
+  dependencies: []
+- name: pulledpork
+  version: 1b4098eb97f9a1c71456c0ceefd8aa41d949cd15
+  fingerprint: 1b4098eb97f9a1c71456c0ceefd8aa41d949cd15
+  sha1: 33c04155db2f0695daf133f7d4865190566cece4
+  dependencies:
+  - perl
+- name: snort
+  version: 42d9a91cba4f9b0d35b9ced2cd06ee4b62438d36
+  fingerprint: 42d9a91cba4f9b0d35b9ced2cd06ee4b62438d36
+  sha1: 4f9abe30825a397901f0fac58229d2eb02d84b0a
+  dependencies: []
+jobs:
+- name: snort
+  version: 3e6d00ce0e7fd08c8c5fd2dcd12d0f87a29a3c91
+  fingerprint: 3e6d00ce0e7fd08c8c5fd2dcd12d0f87a29a3c91
+  sha1: ce75491e0976b595ab580b03ce611967dd4b0619
+license:
+  version: 6e7db3731ae698cffc3a6a701183175445a288d9
+  fingerprint: 6e7db3731ae698cffc3a6a701183175445a288d9
+  sha1: f942dd36861c34c1c4a9ae0989ea6a1fb3533847
+commit_hash: b9ef8b2b
+uncommitted_changes: true
+name: snort
+version: '2'
