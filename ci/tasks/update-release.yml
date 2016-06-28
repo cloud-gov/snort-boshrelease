@@ -9,6 +9,8 @@ image_resource:
 inputs:
 - name: snort-pulledpork-source
 - name: snort-blobs-yml
+- name: final-builds-dir-tarball
+- name: releases-dir-tarball
 
 outputs:
 - name: finalized-release
