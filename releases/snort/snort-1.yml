@@ -1,0 +1,25 @@
+---
+packages:
+- name: omprog
+  version: b3095909de264d9d5c529a56017342b81e91b665
+  fingerprint: b3095909de264d9d5c529a56017342b81e91b665
+  sha1: 05fbe2a83a0c92df380b0580fb441fc3894ebd59
+  dependencies: []
+- name: snort
+  version: 50ba058c8f826ec8e82ccb8d1e909334ed150e8f
+  fingerprint: 50ba058c8f826ec8e82ccb8d1e909334ed150e8f
+  sha1: adcf6f4266e9358767560bc4b82eb295a8ddcb77
+  dependencies: []
+jobs:
+- name: snort
+  version: be3a31f57f572b01d0e10fd234cd3f8a54b3ac46
+  fingerprint: be3a31f57f572b01d0e10fd234cd3f8a54b3ac46
+  sha1: ed30b3f481ed02faa842d3441b91d3c0a8e9db8e
+license:
+  version: 6e7db3731ae698cffc3a6a701183175445a288d9
+  fingerprint: 6e7db3731ae698cffc3a6a701183175445a288d9
+  sha1: f942dd36861c34c1c4a9ae0989ea6a1fb3533847
+commit_hash: 5302d422
+uncommitted_changes: true
+name: snort
+version: '1'
