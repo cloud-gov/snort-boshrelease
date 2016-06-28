@@ -8,7 +8,13 @@ cat << EOF > config/private.yml
 $PRIVATE_YML
 EOF
 
+RELEASE_NAME=`ls releases`
+
 cp ../snort-blobs-yml/snort-blobs.yml config/blobs.yml
+
+tar -zxf ../final-builds-dir-tarball/final-builds-dir-${RELEASE_NAME}.tgz
+tar -zxf ../releases-dir-tarball/releases-dir-${RELEASE_NAME}.tgz
+
 bosh -n sync blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
@@ -17,9 +23,12 @@ if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" !=
   bosh -n upload blobs
   bosh -n create release --force --final --with-tarball
 
-  cp releases/snort/*.tgz ../finalized-release
+  mv releases/snort/*.tgz ../finalized-release
 else
   touch ../finalized-release/snort-0.tgz
 fi
+
+tar -czhf ../finalized-release/final-builds-dir-${RELEASE_NAME}.tgz .final_builds
+tar -czhf ../finalized-release/releases-dir-${RELEASE_NAME}.tgz releases
 
 cp -r . ../snort-bosh-source

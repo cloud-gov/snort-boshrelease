@@ -5,6 +5,8 @@ jobs:
   - get: snort-release-source
     trigger: true
   - get: snort-blobs-yml
+  - get: final-builds-dir-tarball
+  - get: releases-dir-tarball
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
@@ -15,12 +17,19 @@ jobs:
     params:
       PRIVATE_YML: {{private-yml}}
       FORCE_UPDATE: 1
-  - put: snort-blobs-yml
-    params:
-      file: snort-bosh-source/config/blobs.yml
-  - put: release-tarball
-    params:
-      file: finalized-release/snort-*.tgz
+  - aggregate:
+    - put: snort-blobs-yml
+      params:
+        file: snort-bosh-source/config/blobs.yml
+    - put: release-tarball
+      params:
+        file: finalized-release/snort-*.tgz
+    - put: final-builds-dir-tarball
+      params:
+        file: finalized-release/final-builds-dir-snort.tgz
+    - put: releases-dir-tarball
+      params:
+        file: finalized-release/releases-dir-snort.tgz
 
 - name: update-release-rules
   plan:
@@ -29,6 +38,8 @@ jobs:
   - get: snort-release-source
   - get: snort-blobs-yml
     trigger: true
+  - get: final-builds-dir-tarball
+  - get: releases-dir-tarball
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
@@ -39,12 +50,19 @@ jobs:
     params:
       PRIVATE_YML: {{private-yml}}
       FORCE_UPDATE: 0
-  - put: snort-blobs-yml
-    params:
-      file: snort-bosh-source/config/blobs.yml
-  - put: release-tarball
-    params:
-      file: finalized-release/snort-*.tgz
+  - aggregate:
+    - put: snort-blobs-yml
+      params:
+        file: snort-bosh-source/config/blobs.yml
+    - put: release-tarball
+      params:
+        file: finalized-release/snort-*.tgz
+    - put: final-builds-dir-tarball
+      params:
+        file: finalized-release/final-builds-dir-snort.tgz
+    - put: releases-dir-tarball
+      params:
+        file: finalized-release/releases-dir-snort.tgz
 
 resources:
 - name: timer
@@ -75,3 +93,21 @@ resources:
     regexp: snort-(.*).tgz
     access_key_id: {{s3-bosh-releases-access-key-id}}
     secret_access_key: {{s3-bosh-releases-secret-access-key}}
+
+- name: final-builds-dir-tarball
+  type: s3
+  source:
+    bucket: {{s3-bosh-releases-bucket}}
+    versioned_file: final-builds-dir-snort.tgz
+    access_key_id: {{s3-bosh-releases-access-key-id}}
+    secret_access_key: {{s3-bosh-releases-secret-access-key}}
+    region_name: {{s3-bosh-releases-region}}
+
+- name: releases-dir-tarball
+  type: s3
+  source:
+    bucket: {{s3-bosh-releases-bucket}}
+    versioned_file: releases-dir-snort.tgz
+    access_key_id: {{s3-bosh-releases-access-key-id}}
+    secret_access_key: {{s3-bosh-releases-secret-access-key}}
+    region_name: {{s3-bosh-releases-region}}
