@@ -1,11 +1,32 @@
 ---
 jobs:
-- name: make-snort-conf
+- name: update-release-git
+  plan:
+  - get: snort-release-source
+    trigger: true
+  - get: snort-blobs-yml
+  - task: pulledpork
+    file: snort-release-source/ci/tasks/pulledpork.yml
+    params:
+      OINKCODE: {{oinkcode}}
+      SNORT_VERSION: {{snort-version}}
+  - task: update-blobs
+    file: snort-release-source/ci/tasks/update-release.yml
+    params:
+      PRIVATE_YML: {{private-yml}}
+      FORCE_UPDATE: 0
+  - put: snort-blobs-yml
+    params:
+      file: snort-bosh-source/config/blobs.yml
+  - put: release-tarball
+    params:
+      file: finalized-release/snort-*.tgz
+
+- name: update-release-rules
   plan:
   - get: timer
     trigger: true
   - get: snort-release-source
-    trigger: true
   - get: snort-blobs-yml
     trigger: true
   - task: pulledpork
@@ -17,9 +38,7 @@ jobs:
     file: snort-release-source/ci/tasks/update-release.yml
     params:
       PRIVATE_YML: {{private-yml}}
-  - put: snort-release-source
-    params:
-      repository: snort-bosh-source
+      FORCE_UPDATE: 1
   - put: snort-blobs-yml
     params:
       file: snort-bosh-source/config/blobs.yml

@@ -12,7 +12,7 @@ cp ../snort-blobs-yml/snort-blobs.yml config/blobs.yml
 bosh -n sync blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
-if [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz | sha1sum)" ] ; then
+if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz | sha1sum)" ] ; then
   bosh -n add blob snort-conf.tar.gz
   bosh -n upload blobs
   bosh -n create release --force --final --with-tarball
