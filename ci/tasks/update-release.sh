@@ -8,6 +8,7 @@ cat << EOF > config/private.yml
 $PRIVATE_YML
 EOF
 
+cp ../snort-blobs-yml/snort-blobs.yml config/blobs.yml
 bosh -n sync blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
@@ -15,11 +16,6 @@ if [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.t
   bosh -n add blob snort-conf.tar.gz
   bosh -n upload blobs
   bosh -n create release --force --final --with-tarball
-
-  git add config/blobs.yml
-  git config user.name "18f"
-  git config user.email "devops@gsa.gov"
-  git commit -m "Update blobs."
 
   cp releases/snort/*.tgz ../finalized-release
 else

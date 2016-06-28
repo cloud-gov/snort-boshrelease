@@ -8,6 +8,7 @@ image_resource:
 
 inputs:
 - name: snort-pulledpork-source
+- name: snort-blobs-yml
 
 outputs:
 - name: finalized-release

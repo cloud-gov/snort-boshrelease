@@ -6,6 +6,8 @@ jobs:
     trigger: true
   - get: snort-release-source
     trigger: true
+  - get: snort-blobs-yml
+    trigger: true
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
@@ -18,6 +20,9 @@ jobs:
   - put: snort-release-source
     params:
       repository: snort-bosh-source
+  - put: snort-blobs-yml
+    params:
+      file: snort-bosh-source/config/blobs.yml
   - put: release-tarball
     params:
       file: finalized-release/snort-*.tgz
@@ -33,7 +38,15 @@ resources:
   source:
     uri: {{snort-release-uri}}
     branch: {{snort-release-branch}}
-    private_key: {{snort-release-private-key}}
+
+- name: snort-blobs-yml
+  type: s3
+  source:
+    region_name: {{s3-bosh-releases-region}}
+    bucket: {{s3-bosh-releases-bucket}}
+    versioned_file: snort-blobs.yml
+    access_key_id: {{s3-bosh-releases-access-key-id}}
+    secret_access_key: {{s3-bosh-releases-secret-access-key}}
 
 - name: release-tarball
   type: s3
