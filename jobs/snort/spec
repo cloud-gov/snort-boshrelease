@@ -2,7 +2,6 @@
 name: snort
 packages:
 - snort
-- omprog
 templates:
   bin/alert: bin/alert
   bin/ctl: bin/ctl

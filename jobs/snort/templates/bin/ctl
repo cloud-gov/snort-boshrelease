@@ -16,9 +16,6 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-    mkdir -p /usr/local/lib/rsyslog
-    ln -sf /var/vcap/packages/omprog/lib/rsyslog/omprog.so \
-      /usr/local/lib/rsyslog/omprog.so
     cp /var/vcap/jobs/snort/config/syslog-riemann.conf \
       /etc/rsyslog.d/30-syslog-riemann.conf
     service rsyslog restart
