@@ -4,7 +4,7 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: jmcarp/pulledpork
+    repository: 18fgsa/pulledpork
 
 inputs:
 - name: snort-release-source
