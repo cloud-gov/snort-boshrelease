@@ -14,9 +14,9 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 JOB_NAME=$1
-output_label=${2:-${JOB_NAME}}
+output_label="${JOB_NAME}-${2}"
 
-export JOB_DIR=/var/vcap/jobs/$JOB_NAME
+export JOB_DIR=/var/vcap/jobs/${JOB_NAME}
 chmod 755 $JOB_DIR # to access file via symlink
 
 # Load some bosh deployment properties into env vars
@@ -29,10 +29,10 @@ redirect_output ${output_label}
 
 export HOME=${HOME:-/home/vcap}
 
-export RUN_DIR=/var/vcap/sys/run/$JOB_NAME
-export LOG_DIR=/var/vcap/sys/log/$JOB_NAME
-export TMP_DIR=/var/vcap/sys/tmp/$JOB_NAME
-export STORE_DIR=/var/vcap/store/$JOB_NAME
+export RUN_DIR=/var/vcap/sys/run/${output_label}
+export LOG_DIR=/var/vcap/sys/log/${output_label}
+export TMP_DIR=/var/vcap/sys/tmp/${output_label}
+export STORE_DIR=/var/vcap/store/${output_label}
 for dir in $RUN_DIR $LOG_DIR $TMP_DIR $STORE_DIR
 do
   mkdir -p ${dir}
