@@ -1,10 +1,10 @@
 check process snort-lo
-  with pidfile /var/vcap/sys/run/snort/snort-lo.pid
+  with pidfile /var/vcap/sys/run/snort-lo/snort-lo.pid
   start program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl start lo'"
   stop program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl stop lo'"
   group vcap
 check process snort-eth0
-  with pidfile /var/vcap/sys/run/snort/snort-eth0.pid
+  with pidfile /var/vcap/sys/run/snort-eth0/snort-eth0.pid
   start program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl start eth0'"
   stop program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl stop eth0'"
   group vcap
