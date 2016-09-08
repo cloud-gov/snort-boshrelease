@@ -27,10 +27,17 @@ case $1 in
 
     echo $$ > $PIDFILE
 
+    if [ "${COMPONENT}" == "lo" ]; then
+      CHKSUM="none"
+    else
+      CHKSUM="all"
+    fi
+
     exec /var/vcap/packages/snort/bin/snort \
       -c /var/vcap/packages/snort/etc/snort.conf \
       -i ${COMPONENT} \
       -l ${LOG_DIR} \
+      -k ${CHKSUM} \
       >>${LOG_DIR}/${output_label}.log 2>&1
 
     ;;
