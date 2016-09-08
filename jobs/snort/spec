@@ -10,4 +10,7 @@ templates:
   config/syslog-riemann.conf: config/syslog-riemann.conf
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
-properties: {}
+  rules/local.rules.erb: rules/local.rules
+properties:
+  snort.rules:
+    description: "Custom snort rules"
