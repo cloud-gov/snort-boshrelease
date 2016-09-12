@@ -84,6 +84,7 @@ resources:
     versioned_file: snort-blobs.yml
     access_key_id: {{s3-bosh-releases-access-key-id}}
     secret_access_key: {{s3-bosh-releases-secret-access-key}}
+    server_side_encryption: AES256
 
 - name: release-tarball
   type: s3
@@ -93,6 +94,7 @@ resources:
     regexp: snort-(.*).tgz
     access_key_id: {{s3-bosh-releases-access-key-id}}
     secret_access_key: {{s3-bosh-releases-secret-access-key}}
+    server_side_encryption: AES256
 
 - name: final-builds-dir-tarball
   type: s3
@@ -102,6 +104,7 @@ resources:
     access_key_id: {{s3-bosh-releases-access-key-id}}
     secret_access_key: {{s3-bosh-releases-secret-access-key}}
     region_name: {{s3-bosh-releases-region}}
+    server_side_encryption: AES256
 
 - name: releases-dir-tarball
   type: s3
@@ -111,3 +114,4 @@ resources:
     access_key_id: {{s3-bosh-releases-access-key-id}}
     secret_access_key: {{s3-bosh-releases-secret-access-key}}
     region_name: {{s3-bosh-releases-region}}
+    server_side_encryption: AES256
