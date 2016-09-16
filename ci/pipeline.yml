@@ -1,5 +1,13 @@
 ---
 jobs:
+- name: update-pulledpork-docker
+  plan:
+  - get: snort-release-source
+    trigger: true
+  - put: docker-image-repo
+    params:
+      build: snort-release-source/ci/docker/pulledpork
+
 - name: update-release-git
   plan:
   - get: snort-release-source
@@ -75,6 +83,14 @@ resources:
   source:
     uri: {{snort-release-uri}}
     branch: {{snort-release-branch}}
+
+- name: docker-image-repo
+  type: docker-image
+  source:
+    email: {{docker-email}}
+    username: {{docker-username}}
+    password: {{docker-password}}
+    repository: {{docker-repository}}
 
 - name: snort-blobs-yml
   type: s3
