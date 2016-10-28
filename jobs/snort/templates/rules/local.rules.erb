@@ -1,1 +1,3 @@
-<%= p('snort.rules', '') %>
+<% p("snort.rules", []).each do |rule| %>
+<%= rule %>
+<% end %>
