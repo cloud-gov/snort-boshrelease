@@ -15,15 +15,16 @@ cp ../snort-blobs-yml/snort-blobs.yml config/blobs.yml
 tar -zxf ../final-builds-dir-tarball/final-builds-dir-${RELEASE_NAME}.tgz
 tar -zxf ../releases-dir-tarball/releases-dir-${RELEASE_NAME}.tgz
 
-bosh -n sync blobs
+bosh-cli -n sync-blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
 if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz | sha1sum)" ] ; then
-  bosh -n add blob snort-conf.tar.gz
-  bosh -n upload blobs
-  bosh -n create release --force --final --with-tarball
+  bosh-cli -n add-blob snort-conf.tar.gz snort-conf.tar.gz
+  bosh-cli -n upload-blobs
 
-  mv releases/snort/*.tgz ../finalized-release
+  bosh-cli -n create-release --force --final --tarball=./snort.tgz
+  latest_release=$(ls releases/snort/snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
+  mv snort.tgz ../finalized-release/snort-${latest_release}.tgz
 else
   touch ../finalized-release/snort-0.tgz
 fi
