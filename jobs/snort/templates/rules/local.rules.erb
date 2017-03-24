@@ -1,3 +1,9 @@
 <% p("snort.rules", []).each do |rule| %>
 <%= rule %>
 <% end %>
+
+<% if_link("snort-config") do |config| %>
+  <% config.p("snort.rules", []).each do |rule| %>
+<%= rule %>
+  <% end %>
+<% end %>

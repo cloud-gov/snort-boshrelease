@@ -8,4 +8,3 @@ check process snort-eth0
   start program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl start eth0'"
   stop program "/var/vcap/jobs/snort/bin/monit_debugger snort_ctl '/var/vcap/jobs/snort/bin/ctl stop eth0'"
   group vcap
-
