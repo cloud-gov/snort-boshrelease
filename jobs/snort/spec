@@ -1,5 +1,9 @@
 ---
 name: snort
+consumes:
+- name: snort-config
+  optional: true
+  type: config
 packages:
 - snort
 templates:
