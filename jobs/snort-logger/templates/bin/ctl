@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -e
+set -u
+
+RUN_DIR=/var/vcap/sys/run/snort-logger
+LOG_DIR=/var/vcap/sys/log/snort-logger
+TMP_DIR=/var/vcap/sys/tmp/snort-logger
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${TMP_DIR}
+
+PIDFILE=${RUN_DIR}/snort-logger.pid
+
+source /var/vcap/packages/snort-logger/common/utils.sh
+
+export PATH=/var/vcap/packages/snort-logger/bin:${PATH}
+
+case $1 in
+  start)
+    pid_guard $PIDFILE "snort-logger"
+    echo $$ > $PIDFILE
+
+    PREFIX=snort.log
+    DIRS=/var/vcap/sys/log/snort-eth0,/var/vcap/sys/log/snort-lo
+    OUTPUT=/var/vcap/jobs/node_exporter/config/snort.prom
+    exec snort-logger \
+      >> ${LOG_DIR}/snort-logger.stdout.log \
+      2>> ${LOG_DIR}/snort-logger.stderr.log
+
+    ;;
+
+  stop)
+    kill_and_wait ${PIDFILE}
+    ;;
+  *)
+    echo "Usage: snort_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0

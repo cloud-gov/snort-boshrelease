@@ -1,0 +1,5 @@
+check process snort-logger
+  with pidfile /var/vcap/sys/run/snort-logger/snort-logger.pid
+  start program "/var/vcap/jobs/snort-logger/bin/ctl start"
+  stop program "/var/vcap/jobs/snort-logger/bin/ctl stop"
+  group vcap

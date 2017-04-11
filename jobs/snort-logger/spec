@@ -1,0 +1,6 @@
+---
+name: snort-logger
+packages:
+- snort-logger
+templates:
+  bin/ctl: bin/ctl
