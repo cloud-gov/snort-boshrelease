@@ -79,8 +79,8 @@ func write(tempdir, output string, events chan string, ticker *time.Ticker, errs
 }
 
 func format(record *unified2.EventRecord) string {
-	payload := fmt.Sprintf(`sid="%d",ip_source="%s",ip_dest="%s",port_source="%d",port_dest="%d`,
-		record.SignatureId, string(record.IpSource), string(record.IpDestination), record.SportItype, record.DportIcode)
+	payload := fmt.Sprintf(`sid="%d",ip_source="%s",ip_dest="%s",port_source="%d",port_dest="%d"`,
+		record.SignatureId, record.IpSource.String(), record.IpDestination.String(), record.SportItype, record.DportIcode)
 	return fmt.Sprintf("snort_alert{%s} %d %d", payload, 1, record.EventSecond*1000+record.EventMicrosecond/1000)
 }
 
@@ -90,6 +90,7 @@ func flush(tempdir, output string, buffer []string) error {
 		return err
 	}
 	defer os.Remove(tmp.Name())
+	buffer = append(buffer, "") // Add trailing newline
 	if _, err := tmp.Write([]byte(strings.Join(buffer, "\n"))); err != nil {
 		return err
 	}
