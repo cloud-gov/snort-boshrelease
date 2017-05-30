@@ -22,20 +22,25 @@ jobs:
       SNORT_VERSION: {{snort-version}}
   - task: update-blobs
     file: snort-release-source/ci/tasks/update-release.yml
+    tags: [iaas]
     params:
       PRIVATE_YML: {{private-yml}}
       FORCE_UPDATE: 1
   - aggregate:
     - put: snort-blobs-yml
+      tags: [iaas]
       params:
         file: snort-bosh-source/config/blobs.yml
     - put: release-tarball
+      tags: [iaas]
       params:
         file: finalized-release/snort-*.tgz
     - put: final-builds-dir-tarball
+      tags: [iaas]
       params:
         file: finalized-release/final-builds-dir-snort.tgz
     - put: releases-dir-tarball
+      tags: [iaas]
       params:
         file: finalized-release/releases-dir-snort.tgz
 
@@ -54,21 +59,26 @@ jobs:
       OINKCODE: {{oinkcode}}
       SNORT_VERSION: {{snort-version}}
   - task: update-blobs
+    tags: [iaas]
     file: snort-release-source/ci/tasks/update-release.yml
     params:
       PRIVATE_YML: {{private-yml}}
       FORCE_UPDATE: 0
   - aggregate:
     - put: snort-blobs-yml
+      tags: [iaas]
       params:
         file: snort-bosh-source/config/blobs.yml
     - put: release-tarball
+      tags: [iaas]
       params:
         file: finalized-release/snort-*.tgz
     - put: final-builds-dir-tarball
+      tags: [iaas]
       params:
         file: finalized-release/final-builds-dir-snort.tgz
     - put: releases-dir-tarball
+      tags: [iaas]
       params:
         file: finalized-release/releases-dir-snort.tgz
 
@@ -93,41 +103,39 @@ resources:
     repository: {{docker-repository}}
 
 - name: snort-blobs-yml
-  type: s3
+  type: s3-iam
   source:
     region_name: {{s3-bosh-releases-region}}
     bucket: {{s3-bosh-releases-bucket}}
     versioned_file: snort-blobs.yml
-    access_key_id: {{s3-bosh-releases-access-key-id}}
-    secret_access_key: {{s3-bosh-releases-secret-access-key}}
     server_side_encryption: AES256
 
 - name: release-tarball
-  type: s3
+  type: s3-iam
   source:
     region_name: {{s3-bosh-releases-region}}
     bucket: {{s3-bosh-releases-bucket}}
     regexp: snort-(.*).tgz
-    access_key_id: {{s3-bosh-releases-access-key-id}}
-    secret_access_key: {{s3-bosh-releases-secret-access-key}}
     server_side_encryption: AES256
 
 - name: final-builds-dir-tarball
-  type: s3
+  type: s3-iam
   source:
     bucket: {{s3-bosh-releases-bucket}}
     versioned_file: final-builds-dir-snort.tgz
-    access_key_id: {{s3-bosh-releases-access-key-id}}
-    secret_access_key: {{s3-bosh-releases-secret-access-key}}
     region_name: {{s3-bosh-releases-region}}
     server_side_encryption: AES256
 
 - name: releases-dir-tarball
-  type: s3
+  type: s3-iam
   source:
     bucket: {{s3-bosh-releases-bucket}}
     versioned_file: releases-dir-snort.tgz
-    access_key_id: {{s3-bosh-releases-access-key-id}}
-    secret_access_key: {{s3-bosh-releases-secret-access-key}}
     region_name: {{s3-bosh-releases-region}}
     server_side_encryption: AES256
+
+resource_types:
+- name: s3-iam
+  type: docker-image
+  source:
+    repository: 18fgsa/s3-resource
