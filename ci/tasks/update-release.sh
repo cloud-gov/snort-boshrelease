@@ -18,7 +18,7 @@ tar -zxf ../releases-dir-tarball/releases-dir-${RELEASE_NAME}.tgz
 bosh-cli -n sync-blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
 
-if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz | sha1sum)" ] ; then
+if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz snort-conf/rules/snort.rules | sha1sum)" != "$(tar -xOf blobs/snort-conf.tar.gz snort-conf/rules/snort.rules | sha1sum)" ] ; then
   bosh-cli -n add-blob snort-conf.tar.gz snort-conf.tar.gz
   bosh-cli -n upload-blobs
 
