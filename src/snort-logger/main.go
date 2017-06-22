@@ -26,12 +26,14 @@ func main() {
 		os.Exit(99)
 	}
 
+	timestamp := time.Now().Unix()
 	ticker := time.NewTicker(60 * time.Second)
+	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
 	events := make(chan string)
 	errs := make(chan error)
 
 	for _, dir := range strings.Split(*dirs, ",") {
-		go spool(unified2.NewSpoolRecordReader(dir, *prefix), events, errs)
+		go spool(unified2.NewSpoolRecordReader(dir, *prefix), timestamp, logger, events, errs)
 	}
 	go write(*tempdir, *outfile, events, ticker, errs)
 
@@ -43,7 +45,7 @@ func main() {
 	log.Fatal(err)
 }
 
-func spool(reader *unified2.SpoolRecordReader, events chan string, errs chan error) {
+func spool(reader *unified2.SpoolRecordReader, timestamp int64, logger *log.Logger, events chan string, errs chan error) {
 	for {
 		record, err := reader.Next()
 		if err != nil {
@@ -61,13 +63,16 @@ func spool(reader *unified2.SpoolRecordReader, events chan string, errs chan err
 
 		switch record := record.(type) {
 		case *unified2.EventRecord:
-			events <- format(record)
+			if int64(record.EventSecond) > timestamp {
+				logger.Printf("Captured event %+v", record)
+				events <- format(record)
+			}
 		}
 	}
 }
 
 func write(tempdir, outfile string, events chan string, ticker *time.Ticker, errs chan error) {
-	var counts map[string]int
+	counts := map[string]int{}
 	for {
 		select {
 		case event := <-events:
@@ -76,13 +81,14 @@ func write(tempdir, outfile string, events chan string, ticker *time.Ticker, err
 			if err := flush(tempdir, outfile, counts); err != nil {
 				errs <- err
 			}
+			counts = map[string]int{}
 		}
 	}
 }
 
 func format(event *unified2.EventRecord) string {
-	return fmt.Sprintf(`sid="%d",ip_source="%s",ip_dest="%s",port_source="%d",port_dest="%d"`,
-		event.SignatureId, event.IpSource.String(), event.IpDestination.String(), event.SportItype, event.DportIcode)
+	return fmt.Sprintf(`sid="%d",ip_source="%s",port_dest="%d"`,
+		event.SignatureId, event.IpSource.String(), event.DportIcode)
 }
 
 func flush(tempdir, outfile string, counts map[string]int) error {
