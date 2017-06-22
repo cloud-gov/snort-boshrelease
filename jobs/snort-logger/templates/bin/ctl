@@ -19,11 +19,10 @@ case $1 in
     pid_guard $PIDFILE "snort-logger"
     echo $$ > $PIDFILE
 
-    export PREFIX=snort.log
-    export DIRS=/var/vcap/sys/log/snort-eth0,/var/vcap/sys/log/snort-lo
-    export OUTPUT=/var/vcap/jobs/node_exporter/config/snort.prom
-    export TMP_DIR=${TMP_DIR}
     exec snort-logger \
+      --dirs /var/vcap/sys/log/snort-eth0,/var/vcap/sys/log/snort-lo \
+      --tempdir ${TMP_DIR} \
+      --outfile /var/vcap/jobs/node_exporter/config/snort.prom \
       >> ${LOG_DIR}/snort-logger.stdout.log \
       2>> ${LOG_DIR}/snort-logger.stderr.log
 
