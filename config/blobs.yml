@@ -1,60 +1,20 @@
 ---
-autoconf-2.69.tar.gz:
-  object_id: 1a63a843-e453-4f2b-9222-e77fa9103cd7
-  sha: 562471cbcb0dd0fa42a76665acf0dbb68479b78a
-  size: 1927468
-automake-1.15.tar.gz:
-  object_id: 2fca38b3-9594-4454-a6f4-d044acd5d1dc
-  sha: b5a840c7ec4321e78fdc9472e476263fa6614ca1
-  size: 2244206
 daq-2.0.6.tar.gz:
   object_id: cc31755e-7d3f-43e3-93ec-a4ce43caefa7
   sha: ec0ebfcd4568a3e4e58c774982c808c414dd71bc
   size: 514687
-docutils-0.12.tar.gz:
-  object_id: d03ef71b-2b5f-42d5-9726-373ca5aef2a8
-  sha: 002450621b33c5690060345b0aac25bc2426d675
-  size: 1618353
-json-c-0.12.1.tar.gz:
-  object_id: f0439985-2cd0-4f95-b2a0-13f457d889bd
-  sha: e7fcdbe41f1f3307c036f4e9e04b715de533896e
-  size: 535086
 libdnet-1.12.tar.gz:
   object_id: 33571043-c9aa-4220-b795-545fd976f442
   sha: 3ce046cde6e1872ccef3920923a768e6556b4cde
   size: 959945
-libestr-0.1.10.tar.gz:
-  object_id: 01828e97-0aa0-4239-91fe-9d9a00216be2
-  sha: 35cc717f5ae737a28140dd1472e13ce2ec317c6c
-  size: 336122
 libpcap-1.7.4.tar.gz:
   object_id: f4449413-7c94-4b1f-b829-0c65297dc0db
   sha: 3f31a7706c1487fca36b8379e511965a8d7cbd70
   size: 663021
-libtool-2.4.6.tar.gz:
-  object_id: ad49b1ef-9a45-4947-8ba6-0f4d406c2e94
-  sha: 25b6931265230a06f0fc2146df64c04e5ae6ec33
-  size: 1806697
-libuuid-1.0.3.tar.gz:
-  object_id: 36e0b739-599c-4c05-b1d0-d8c128048c12
-  sha: 46eaedb875ae6e63677b51ec583656199241d597
-  size: 318256
 pcre-8.38.tar.gz:
   object_id: af744a50-39fd-417c-880b-532bd498feea
   sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
   size: 2053336
-pkg-config-0.28.tar.gz:
-  object_id: 15328fd3-562f-4da4-a591-4e2fc724a728
-  sha: 71853779b12f958777bffcb8ca6d849b4d3bed46
-  size: 1931203
-Python-2.7.10.tgz:
-  object_id: 05dcc0ba-c036-40d5-b4ed-d6824895b630
-  sha: 49089f1f6ab445dc8ace97beeb276095c4c8039b
-  size: 16768806
-rsyslog-7.4.6.tar.gz:
-  object_id: 328ed3f7-e51e-4776-abab-0fb2f115ea51
-  sha: 584dd73dab96dab3b001bd423bc941d12fc6fc27
-  size: 2319251
 snort-2.9.8.2.tar.gz:
   object_id: 4ef28f7c-71d4-46b6-b328-c4752f9f465a
   sha: ac344132f3e09e035a07a2c8b7d7381539d4a90f

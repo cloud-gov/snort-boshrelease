@@ -20,11 +20,6 @@ case $1 in
   start)
     pid_guard $PIDFILE $output_label
 
-    # Forward snort-related syslog output to riemann
-    cp /var/vcap/jobs/snort/config/syslog-riemann.conf \
-      /etc/rsyslog.d/30-syslog-riemann.conf
-    service rsyslog restart
-
     echo $$ > $PIDFILE
 
     if [ "${COMPONENT}" == "lo" ]; then
