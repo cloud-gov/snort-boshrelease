@@ -1,0 +1,10 @@
+---
+name: snort-logger
+
+dependencies:
+- golang1.8
+
+files:
+- common/utils.sh
+- github.com/jasonish/go-unified2/**/*
+- snort-logger/**/*

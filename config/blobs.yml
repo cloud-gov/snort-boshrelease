@@ -63,3 +63,7 @@ snort-conf.tar.gz:
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
   sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
   size: 275266
+golang/go1.8.1.linux-amd64.tar.gz:
+  object_id: e36e76ac-d64a-44a9-b43e-c36e0c2b8cbb
+  sha: a433f76c569055ff8536d796995518dd91a9fa5b
+  size: 91277742

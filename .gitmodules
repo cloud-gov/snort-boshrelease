@@ -1,0 +1,3 @@
+[submodule "src/go-unified2"]
+	path = src/github.com/jasonish/go-unified2
+	url = https://github.com/jasonish/go-unified2
