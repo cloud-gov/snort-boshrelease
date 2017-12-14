@@ -1,9 +1,0 @@
-#!/bin/bash
-
-while read LINE; do
-  /var/vcap/jobs/riemannc/bin/riemannc \
-    --host `hostname` \
-    --service snort \
-    --state critical \
-    --description "$LINE"
-done
