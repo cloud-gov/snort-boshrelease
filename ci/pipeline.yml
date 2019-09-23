@@ -18,13 +18,13 @@ jobs:
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
-      OINKCODE: {{oinkcode}}
-      SNORT_VERSION: {{snort-version}}
+      OINKCODE: ((oinkcode))
+      SNORT_VERSION: ((snort-version))
   - task: update-blobs
     file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
-      PRIVATE_YML: {{private-yml}}
+      PRIVATE_YML: ((private-yml))
       FORCE_UPDATE: 1
   - in_parallel:
     - put: snort-blobs-yml
@@ -56,13 +56,13 @@ jobs:
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
-      OINKCODE: {{oinkcode}}
-      SNORT_VERSION: {{snort-version}}
+      OINKCODE: ((oinkcode))
+      SNORT_VERSION: ((snort-version))
   - task: update-blobs
     tags: [iaas]
     file: snort-release-source/ci/tasks/update-release.yml
     params:
-      PRIVATE_YML: {{private-yml}}
+      PRIVATE_YML: ((private-yml))
       FORCE_UPDATE: 0
   - in_parallel:
     - put: snort-blobs-yml
@@ -91,47 +91,47 @@ resources:
 - name: snort-release-source
   type: git
   source:
-    uri: {{snort-release-uri}}
-    branch: {{snort-release-branch}}
+    uri: ((snort-release-uri))
+    branch: ((snort-release-branch))
 
 - name: docker-image-repo
   type: docker-image
   source:
-    email: {{docker-email}}
-    username: {{docker-username}}
-    password: {{docker-password}}
-    repository: {{docker-repository}}
+    email: ((docker-email))
+    username: ((docker-username))
+    password: ((docker-password))
+    repository: ((docker-repository))
 
 - name: snort-blobs-yml
   type: s3-iam
   source:
-    region_name: {{s3-bosh-releases-region}}
-    bucket: {{s3-bosh-releases-bucket}}
+    region_name: ((s3-bosh-releases-region))
+    bucket: ((s3-bosh-releases-bucket))
     versioned_file: snort-blobs.yml
     server_side_encryption: AES256
 
 - name: release-tarball
   type: s3-iam
   source:
-    region_name: {{s3-bosh-releases-region}}
-    bucket: {{s3-bosh-releases-bucket}}
+    region_name: ((s3-bosh-releases-region))
+    bucket: ((s3-bosh-releases-bucket))
     regexp: snort-(.*).tgz
     server_side_encryption: AES256
 
 - name: final-builds-dir-tarball
   type: s3-iam
   source:
-    bucket: {{s3-bosh-releases-bucket}}
+    bucket: ((s3-bosh-releases-bucket))
     versioned_file: final-builds-dir-snort.tgz
-    region_name: {{s3-bosh-releases-region}}
+    region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
 - name: releases-dir-tarball
   type: s3-iam
   source:
-    bucket: {{s3-bosh-releases-bucket}}
+    bucket: ((s3-bosh-releases-bucket))
     versioned_file: releases-dir-snort.tgz
-    region_name: {{s3-bosh-releases-region}}
+    region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
 resource_types:
