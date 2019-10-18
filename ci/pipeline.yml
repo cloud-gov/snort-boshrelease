@@ -50,7 +50,6 @@ jobs:
     trigger: true
   - get: snort-release-source
   - get: snort-blobs-yml
-    trigger: true
   - get: final-builds-dir-tarball
   - get: releases-dir-tarball
   - task: pulledpork
