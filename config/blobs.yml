@@ -1,25 +1,24 @@
----
 daq-2.0.6.tar.gz:
+  size: 514687
   object_id: cc31755e-7d3f-43e3-93ec-a4ce43caefa7
   sha: ec0ebfcd4568a3e4e58c774982c808c414dd71bc
-  size: 514687
 libdnet-1.12.tar.gz:
+  size: 959945
   object_id: 33571043-c9aa-4220-b795-545fd976f442
   sha: 3ce046cde6e1872ccef3920923a768e6556b4cde
-  size: 959945
 libpcap-1.7.4.tar.gz:
+  size: 663021
   object_id: f4449413-7c94-4b1f-b829-0c65297dc0db
   sha: 3f31a7706c1487fca36b8379e511965a8d7cbd70
-  size: 663021
 pcre-8.38.tar.gz:
+  size: 2053336
   object_id: af744a50-39fd-417c-880b-532bd498feea
   sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
-  size: 2053336
-snort-2.9.8.2.tar.gz:
-  object_id: 4ef28f7c-71d4-46b6-b328-c4752f9f465a
-  sha: ac344132f3e09e035a07a2c8b7d7381539d4a90f
-  size: 6311793
+snort-2.9.15.1.tar.gz:
+  size: 6618999
+  object_id: f55cfdc7-5690-4db7-513e-301cae80400e
+  sha: sha256:2cccfc1d1a706586cd47ae9f085a7d5e4e36390b8e9c28cd2020b4b5b587f6c3
 snort-conf.tar.gz:
+  size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
   sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
-  size: 275266
