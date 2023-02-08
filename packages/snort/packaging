@@ -28,7 +28,7 @@ function install {
 
 # Install snort and dependencies
 tar xzf LuaJIT-2.1.0-beta3.tar.gz 
-set -e
+set -e -x
 pushd LuaJIT-2.1.0-beta3
   make prefix=${BOSH_INSTALL_TARGET}
   make install prefix=${BOSH_INSTALL_TARGET}
