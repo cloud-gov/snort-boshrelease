@@ -30,8 +30,8 @@ function install {
 tar xzf LuaJIT-2.1.0-beta3.tar.gz 
 set -e -x
 pushd LuaJIT-2.1.0-beta3
-  make prefix=${BOSH_INSTALL_TARGET}
-  make install prefix=${BOSH_INSTALL_TARGET}
+  make PREFIX=${BOSH_INSTALL_TARGET}
+  make install PREFIX=${BOSH_INSTALL_TARGET}
 popd
 tar xzf libpcap-1.7.4.tar.gz && install libpcap-1.7.4
 tar xzf daq-2.0.6.tar.gz && install daq-2.0.6
