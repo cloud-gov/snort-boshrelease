@@ -27,7 +27,11 @@ function install {
 }
 
 # Install snort and dependencies
-tar xzf LuaJIT-2.1.0-beta3.tar.gz && install LuaJIT-2.1.0-beta3
+tar xzf LuaJIT-2.1.0-beta3.tar.gz 
+set -e
+cd LuaJIT-2.1.0-beta3
+make 
+make install
 tar xzf libpcap-1.7.4.tar.gz && install libpcap-1.7.4
 tar xzf daq-2.0.6.tar.gz && install daq-2.0.6
 tar xzf libdnet-1.12.tar.gz && install libdnet-libdnet-1.12
