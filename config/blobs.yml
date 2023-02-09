@@ -6,6 +6,10 @@ daq-2.0.6.tar.gz:
   size: 514687
   object_id: cc31755e-7d3f-43e3-93ec-a4ce43caefa7
   sha: ec0ebfcd4568a3e4e58c774982c808c414dd71bc
+flex-2.6.4.tar.gz:
+  size: 1419096
+  object_id: 35964f2a-ae5e-4b63-6436-4ac6f4df2b51
+  sha: sha256:e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
 libdnet-1.12.tar.gz:
   size: 959945
   object_id: 33571043-c9aa-4220-b795-545fd976f442
