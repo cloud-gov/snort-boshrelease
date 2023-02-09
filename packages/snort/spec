@@ -3,6 +3,7 @@ name: snort
 files:
 - daq-2.0.6.tar.gz
 - flex-2.6.4.tar.gz
+- hwloc-hwloc-2.8.0.tar.gz
 - pcre-8.38.tar.gz
 - libdnet-1.12.tar.gz
 - libpcap-1.7.4.tar.gz
