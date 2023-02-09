@@ -18,11 +18,11 @@ pcre-8.38.tar.gz:
   size: 2053336
   object_id: af744a50-39fd-417c-880b-532bd498feea
   sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
-snort-2.9.15.1.tar.gz:
-  size: 6618999
-  object_id: f55cfdc7-5690-4db7-513e-301cae80400e
-  sha: sha256:2cccfc1d1a706586cd47ae9f085a7d5e4e36390b8e9c28cd2020b4b5b587f6c3
 snort-conf.tar.gz:
   size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
   sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
+snort3-3.1.43.0.tar.gz:
+  size: 3167658
+  object_id: e6d72774-865a-435a-4da0-8f2acac90b2b
+  sha: sha256:6273cdce0714c4743042e5d9ea649f1cca933662458efb9ebff8cf29d87af159
