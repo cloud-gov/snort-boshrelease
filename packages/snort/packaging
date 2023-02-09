@@ -33,15 +33,14 @@ tar xzf libdnet-1.12.tar.gz && install libdnet-libdnet-1.12
 tar xzf pcre-8.38.tar.gz && install pcre-8.38
 tar xzf flex-2.6.4.tar.gz && install flex-2.6.4
 tar xzf hwloc-2.9.0.tar.gz && install hwloc-2.9.0
-tar xzf LuaJIT-2.1.0-beta3.tar.gz 
+tar xzf LuaJIT-2.0.5.tar.gz 
 set -e -x
-pushd LuaJIT-2.1.0-beta3
+pushd LuaJIT-2.0.5
   make PREFIX=${BOSH_INSTALL_TARGET} BUILDMODE=static
   make install PREFIX=${BOSH_INSTALL_TARGET}
 popd
 tar xzf snort3-3.1.43.0.tar.gz 
 set -e
-sleep 600
 pushd snort3-3.1.43.0
   ./configure_cmake.sh --prefix=${BOSH_INSTALL_TARGET} --enable-tcmalloc
   cd build
