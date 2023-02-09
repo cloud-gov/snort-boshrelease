@@ -31,8 +31,15 @@ tar xzf libpcap-1.7.4.tar.gz && install libpcap-1.7.4
 tar xzf daq-2.0.6.tar.gz && install daq-2.0.6
 tar xzf libdnet-1.12.tar.gz && install libdnet-libdnet-1.12
 tar xzf pcre-8.38.tar.gz && install pcre-8.38
-tar xzf snort3-3.1.43.0.tar.gz && install snort3-3.1.43.0
-
+tar xzf snort3-3.1.43.0.tar.gz 
+set -e
+pushd snort3-3.2.43.0
+  ./configure_cmake.sh --prefix=${BOSH_INSTALL_TARGET} --enable-tcmalloc
+  cd build
+  make
+  make install
+  ldconfig
+popd
 # Set up config paths
 mkdir -p $BOSH_INSTALL_TARGET/etc
 mkdir -p $BOSH_INSTALL_TARGET/lib/snort_dynamicrules
