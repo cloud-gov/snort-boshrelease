@@ -41,6 +41,7 @@ pushd LuaJIT-2.1.0-beta3
 popd
 tar xzf snort3-3.1.43.0.tar.gz 
 set -e
+sleep 600
 pushd snort3-3.1.43.0
   ./configure_cmake.sh --prefix=${BOSH_INSTALL_TARGET} --enable-tcmalloc
   cd build
