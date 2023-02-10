@@ -26,10 +26,10 @@ pcre-8.38.tar.gz:
   size: 2053336
   object_id: af744a50-39fd-417c-880b-532bd498feea
   sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
-pkg-config-pkg-config-0.29.2.tar.gz:
-  size: 1198997
-  object_id: 1aa392a0-4d0b-44b4-79b2-06ae0df0aa4d
-  sha: sha256:67d89af4777653f81f18a6c42620fb51536fea469d412c932b9c7a411f62458a
+pkg-config-0.29.2.tar.gz:
+  size: 2016830
+  object_id: 119a7aa8-530d-4943-48d9-ecd1d18d7336
+  sha: sha256:6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591
 snort-conf.tar.gz:
   size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
