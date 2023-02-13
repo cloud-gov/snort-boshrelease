@@ -32,7 +32,13 @@ tar xzf daq-2.0.6.tar.gz && install daq-2.0.6
 tar xzf libdnet-1.12.tar.gz && install libdnet-libdnet-1.12
 tar xzf pcre-8.38.tar.gz && install pcre-8.38
 tar xzf flex-2.6.4.tar.gz && install flex-2.6.4
-tar xvf pkg-config-0.29.2.tar.gz && install pkg-config-0.29.2
+tar xvf pkg-config-0.29.2.tar.gz
+set -e
+pushd pkg-config-0.29.2
+  ./configure --with-internal-glib --prefix=${BOSH_INSTALL_TARGET}
+  make
+  make install
+popd
 tar xzf hwloc-2.9.0.tar.gz && install hwloc-2.9.0
 tar xzf LuaJIT-2.0.5.tar.gz 
 set -e -x
