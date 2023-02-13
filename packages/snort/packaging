@@ -27,9 +27,16 @@ function install {
 }
 
 # Install snort and dependencies
-tar xzf LuaJIT-2.1.0-beta3.tar.gz 
+tar xvf pkg-config-0.29.2.tar.gz
+set -e
+pushd pkg-config-0.29.2
+  ./configure --with-internal-glib --prefix=${BOSH_INSTALL_TARGET}
+  make
+  make install
+popd
+tar xzf LuaJIT-2.0.5.tar.gz 
 set -e -x
-pushd LuaJIT-2.1.0-beta3
+pushd LuaJIT-2.0.5
   make PREFIX=${BOSH_INSTALL_TARGET} BUILDMODE=static
   make install PREFIX=${BOSH_INSTALL_TARGET}
 popd
