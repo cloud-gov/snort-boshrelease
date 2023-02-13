@@ -11,4 +11,3 @@ files:
 - snort3-3.1.43.0.tar.gz
 - snort-conf.tar.gz
 - pkg-config-0.29.2.tar.gz
-- glib-2.74.5.tar.gz
