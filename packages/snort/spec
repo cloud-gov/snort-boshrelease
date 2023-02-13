@@ -9,3 +9,4 @@ files:
 - snort-2.9.15.1.tar.gz
 - snort-conf.tar.gz
 - pkg-config-0.29.2.tar.gz
+- nghttp2-1.52.0.tar.gz
