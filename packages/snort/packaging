@@ -54,6 +54,7 @@ pushd snort-2.9.15.1
     make
     make install
 popd
+sleep 600
 # Set up config paths
 mkdir -p $BOSH_INSTALL_TARGET/etc
 mkdir -p $BOSH_INSTALL_TARGET/lib/snort_dynamicrules
