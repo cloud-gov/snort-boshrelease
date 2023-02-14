@@ -11,4 +11,3 @@ files:
 - pkg-config-0.29.2.tar.gz
 - nghttp2-1.52.0.tar.gz
 - zlib-1.2.13.tar.gz
-- openssl-3.0.8.tar.gz
