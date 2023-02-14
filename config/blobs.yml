@@ -18,6 +18,10 @@ nghttp2-1.52.0.tar.gz:
   size: 2273312
   object_id: 8a13e486-ba83-4c1f-5853-0ed9b0bf0e21
   sha: sha256:9877caa62bd72dde1331da38ce039dadb049817a01c3bdee809da15b754771b8
+openssl-3.0.8.tar.gz:
+  size: 15151328
+  object_id: bd429d8a-1b0c-45f8-48f5-be3a404aff76
+  sha: sha256:6c13d2bf38fdf31eac3ce2a347073673f5d63263398f1f69d0df4a41253e4b3e
 pcre-8.38.tar.gz:
   size: 2053336
   object_id: af744a50-39fd-417c-880b-532bd498feea
@@ -34,3 +38,7 @@ snort-conf.tar.gz:
   size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
   sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
+zlib-1.2.13.tar.gz:
+  size: 1497445
+  object_id: e3a366f0-8950-4e4f-5206-3f0266f55086
+  sha: sha256:b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30
