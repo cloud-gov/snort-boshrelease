@@ -48,13 +48,12 @@ tar xzf libdnet-1.12.tar.gz && install libdnet-libdnet-1.12
 tar xzf pcre-8.38.tar.gz && install pcre-8.38
 sleep 600
 tar xzf snort-2.9.15.1.tar.gz
-set -e 
+set -e -x
 pushd snort-2.9.15.1
    ./configure --prefix=${BOSH_INSTALL_TARGET} --enable-sourcefire
     make
     make install
 popd
-sleep 600
 # Set up config paths
 mkdir -p $BOSH_INSTALL_TARGET/etc
 mkdir -p $BOSH_INSTALL_TARGET/lib/snort_dynamicrules
