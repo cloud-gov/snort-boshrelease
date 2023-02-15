@@ -6,10 +6,10 @@ daq-2.0.7.tar.gz:
   size: 515154
   object_id: ffa84796-fe70-4825-4fcf-415f105c3bf9
   sha: sha256:d1f6709bc5dbddee3fdf170cdc1e49fb926e2031d4869ecf367a8c47efc87279
-libdnet-1.12.tar.gz:
-  size: 959945
-  object_id: 33571043-c9aa-4220-b795-545fd976f442
-  sha: 3ce046cde6e1872ccef3920923a768e6556b4cde
+libdnet-libdnet-1.16.3.tar.gz:
+  size: 679130
+  object_id: 5aeee3ce-e2c3-48e8-7226-8876bb45aec2
+  sha: sha256:83171a9f6e96d7a5047d6537fce4c376bdf6d867f8d49cf6ba434a0f3f7b45c1
 libpcap-1.10.3.tar.gz:
   size: 951869
   object_id: 444f6911-5ddb-4c7e-6811-6214aa17f674
