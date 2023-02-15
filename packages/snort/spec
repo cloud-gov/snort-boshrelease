@@ -4,7 +4,7 @@ files:
 - daq-2.0.6.tar.gz
 - pcre-8.38.tar.gz
 - libdnet-1.12.tar.gz
-- libpcap-1.7.4.tar.gz
+- libpcap-1.10.3.tar.gz
 - LuaJIT-2.0.5.tar.gz 
 - snort-2.9.15.1.tar.gz
 - snort-conf.tar.gz
