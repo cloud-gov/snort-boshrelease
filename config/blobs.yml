@@ -2,6 +2,10 @@ LuaJIT-2.0.5.tar.gz:
   size: 849845
   object_id: df4712a6-58fb-4dd4-4313-a4c64c614b5c
   sha: sha256:874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979
+check-0.15.2.tar.gz:
+  size: 774985
+  object_id: b44b6ce1-236f-4746-7a68-5df14dbecc69
+  sha: sha256:a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a
 daq-2.0.7.tar.gz:
   size: 515154
   object_id: ffa84796-fe70-4825-4fcf-415f105c3bf9
