@@ -22,10 +22,10 @@ nghttp2-1.52.0.tar.gz:
   size: 2273312
   object_id: 8a13e486-ba83-4c1f-5853-0ed9b0bf0e21
   sha: sha256:9877caa62bd72dde1331da38ce039dadb049817a01c3bdee809da15b754771b8
-pcre-8.38.tar.gz:
-  size: 2053336
-  object_id: af744a50-39fd-417c-880b-532bd498feea
-  sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
+pcre2-10.42.tar.gz:
+  size: 2397194
+  object_id: e80b2c71-2163-4c55-6fa3-b62f382c277d
+  sha: sha256:c33b418e3b936ee3153de2c61cc638e7e4fe3156022a5c77d0711bcbb9d64f1f
 pkg-config-0.29.2.tar.gz:
   size: 2016830
   object_id: 119a7aa8-530d-4943-48d9-ecd1d18d7336
