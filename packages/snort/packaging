@@ -46,8 +46,7 @@ tar xzf nghttp2-1.52.0.tar.gz && install nghttp2-1.52.0
 tar xzf libpcap-1.10.3.tar.gz && install libpcap-1.10.3
 tar xzf daq-2.0.7.tar.gz && install daq-2.0.7
 tar xzf libdnet-libdnet-1.16.3.tar.gz && install libdnet-libdnet-1.16.3
-tar xzf pcre2-10.42.tar.gz && install pcre2-10.42
-sleep 600
+tar xzf pcre-8.45.tar.gz && install pcre-8.45
 tar xzf snort-2.9.15.1.tar.gz
 set -e -x
 pushd snort-2.9.15.1
