@@ -18,6 +18,10 @@ libpcap-1.10.3.tar.gz:
   size: 951869
   object_id: 444f6911-5ddb-4c7e-6811-6214aa17f674
   sha: sha256:2a8885c403516cf7b0933ed4b14d6caa30e02052489ebd414dc75ac52e7559e6
+libtirpc-libtirpc-1-2-7-rc4.tar.gz:
+  size: 247108
+  object_id: 951cc68d-5a07-41b7-4e99-a3e405ff7f3b
+  sha: sha256:cf207aae7d0d0a6a0bed2221f3f9b3cb205d25db378973880d3aef7217782b1d
 nghttp2-1.52.0.tar.gz:
   size: 2273312
   object_id: 8a13e486-ba83-4c1f-5853-0ed9b0bf0e21
