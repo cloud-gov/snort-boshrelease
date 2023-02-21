@@ -50,7 +50,7 @@ tar xzf pcre-8.45.tar.gz && install pcre-8.45
 tar xzf snort-2.9.15.1.tar.gz
 set -e -x
 pushd snort-2.9.15.1
-   ./configure --prefix=${BOSH_INSTALL_TARGET} --enable-sourcefire
+   ./configure --prefix=${BOSH_INSTALL_TARGET} --enable-normalizer
     make
     make install
 popd
