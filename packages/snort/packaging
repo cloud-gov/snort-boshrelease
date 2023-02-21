@@ -41,6 +41,7 @@ pushd LuaJIT-2.0.5
   make install PREFIX=${BOSH_INSTALL_TARGET}
 popd
 tar xzf zlib-1.2.13.tar.gz && install zlib-1.2.13
+tar xzf glibc-2.37.tar.gz && install glibc-2.37
 tar xzf check-0.15.2.tar.gz && install check-0.15.2
 tar xzf nghttp2-1.52.0.tar.gz && install nghttp2-1.52.0
 tar xzf libpcap-1.10.3.tar.gz && install libpcap-1.10.3
