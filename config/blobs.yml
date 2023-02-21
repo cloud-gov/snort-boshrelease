@@ -30,10 +30,10 @@ pkg-config-0.29.2.tar.gz:
   size: 2016830
   object_id: 119a7aa8-530d-4943-48d9-ecd1d18d7336
   sha: sha256:6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591
-snort-2.9.15.1.tar.gz:
-  size: 6618999
-  object_id: f55cfdc7-5690-4db7-513e-301cae80400e
-  sha: sha256:2cccfc1d1a706586cd47ae9f085a7d5e4e36390b8e9c28cd2020b4b5b587f6c3
+snort-2.9.20.tar.gz:
+  size: 7009894
+  object_id: c9b02377-28bd-4e53-7391-9ee5d19c62c4
+  sha: sha256:29400e13f53b1831e0b8b10ec1224a1cbaa6dc1533a5322a20dd80bb84b4981c
 snort-conf.tar.gz:
   size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
