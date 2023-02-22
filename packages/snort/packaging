@@ -46,7 +46,12 @@ tar xzf nghttp2-1.52.0.tar.gz && install nghttp2-1.52.0
 tar xzf libpcap-1.10.3.tar.gz && install libpcap-1.10.3
 tar xzf daq-2.0.7.tar.gz && install daq-2.0.7
 tar xzf libdnet-libdnet-1.16.3.tar.gz && install libdnet-libdnet-1.16.3
-tar xzf libtirpc-1.3.3.tar.gz && install libtirpc-1.3.3
+tar xzf libtirpc-1.3.3.tar.gz 
+pushd libtirpc-1.3.3
+  ./configure --disable-gssapi --prefix=${BOSH_INSTALL_TARGET}
+  make
+  make install
+popd
 tar xzf pcre-8.45.tar.gz && install pcre-8.45
 tar xzf snort-2.9.20.tar.gz
 set -e -x
