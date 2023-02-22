@@ -53,6 +53,7 @@ pushd libtirpc-1.3.3
   make install
 popd
 tar xzf pcre-8.45.tar.gz && install pcre-8.45
+sleep 600
 tar xzf snort-2.9.20.tar.gz
 set -e -x
 pushd snort-2.9.20
