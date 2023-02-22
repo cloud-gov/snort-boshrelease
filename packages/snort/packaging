@@ -58,7 +58,7 @@ tar xzf snort-2.9.20.tar.gz
 set -e -x
 pushd snort-2.9.20
     ./configure --prefix=${BOSH_INSTALL_TARGET}
-    make
+    make CFLAGS+=" -I/${BOSH_INSTALL_TARGET}/include/tirpc"
     make install
 popd
 # Set up config paths
