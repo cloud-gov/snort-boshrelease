@@ -67,4 +67,4 @@ mkdir -p $BOSH_INSTALL_TARGET/lib/snort_dynamicrules
 # Set up config files
 cp snort-2.9.20/etc/* $BOSH_INSTALL_TARGET/etc
 tar xzf snort-conf.tar.gz
-cp -r snort-conf/* $BOSH_INSTALL_TARGET/etc
+cp -r ci/config/snort-conf/* $BOSH_INSTALL_TARGET/etc
