@@ -13,4 +13,4 @@ outputs:
 - name: snort-pulledpork-source
 
 run:
-  path: snort-jammy-release-source/ci/tasks/pulledpork.sh
+  path: snort-jammy-release-source/ci/tasks/jammy-pulledpork.sh
