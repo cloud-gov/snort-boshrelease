@@ -1,0 +1,20 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: 18fgsa/concourse-task
+
+inputs:
+- name: snort-pulledpork-source
+- name: jammy-snort-blobs-yml
+- name: jammy-final-builds-dir-tarball
+- name: jammy-releases-dir-tarball
+
+outputs:
+- name: finalized-release
+- name: snort-bosh-source
+
+run:
+  path: snort-pulledpork-source/ci/tasks/jammy-update-release.sh
