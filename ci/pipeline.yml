@@ -16,12 +16,12 @@ jobs:
   - get: jammy-final-builds-dir-tarball
   - get: jammy-releases-dir-tarball
   - task: pulledpork
-    file: snort-release-source/ci/tasks/pulledpork.yml
+    file: snort-jammy-release-source/ci/tasks/pulledpork.yml
     params:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
-    file: snort-release-source/ci/tasks/jammy-update-release.yml
+    file: snort-jammy-release-source/ci/tasks/jammy-update-release.yml
     tags: [iaas]
     params:
       PRIVATE_YML: ((private-yml))
