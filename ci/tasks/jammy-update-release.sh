@@ -29,7 +29,7 @@ else
   touch ../finalized-release/snort-0.tgz
 fi
 
-tar -czhf ../finalized-release/final-builds-dir-snort-${RELEASE_NAME}.tgz .final_builds
-tar -czhf ../finalized-release/releases-dir-snort-${RELEASE_NAME}.tgz releases
+tar -czhf ../finalized-release/final-builds-dir-jammy-${RELEASE_NAME}.tgz .final_builds
+tar -czhf ../finalized-release/releases-dir-jammy-${RELEASE_NAME}.tgz releases
 
 cp -r . ../jammy-snort-bosh-source
