@@ -10,7 +10,7 @@ EOF
 
 RELEASE_NAME=`ls releases`
 
-cp ../snort-blobs-yml/jammy-snort-blobs.yml config/blobs.yml
+cp ../jammy-snort-blobs-yml/jammy-snort-blobs.yml config/blobs.yml
 
 tar -zxf ../final-builds-dir-tarball/final-builds-dir-jammy-${RELEASE_NAME}.tgz
 tar -zxf ../releases-dir-tarball/releases-dir-jammy-${RELEASE_NAME}.tgz
