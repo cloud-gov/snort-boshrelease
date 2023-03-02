@@ -30,7 +30,7 @@ jobs:
     - put: jammy-snort-blobs-yml
       tags: [iaas]
       params:
-        file: snort-bosh-source/config/blobs.yml
+        file: jammy-snort-bosh-source/config/blobs.yml
     - put: jammy-release-tarball
       tags: [iaas]
       params:
