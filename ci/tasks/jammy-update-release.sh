@@ -12,8 +12,8 @@ RELEASE_NAME=`ls releases`
 
 cp ../jammy-snort-blobs-yml/jammy-snort-blobs.yml config/blobs.yml
 
-tar -zxf ../final-builds-dir-tarball/final-builds-dir-jammy-${RELEASE_NAME}.tgz
-tar -zxf ../releases-dir-tarball/releases-dir-jammy-${RELEASE_NAME}.tgz
+tar -zxf ../jammy-final-builds-dir-tarball/final-builds-dir-jammy-${RELEASE_NAME}.tgz
+tar -zxf ../jammy-releases-dir-tarball/releases-dir-jammy-${RELEASE_NAME}.tgz
 
 bosh-cli -n sync-blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
