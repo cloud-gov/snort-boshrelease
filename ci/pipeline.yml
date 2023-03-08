@@ -8,6 +8,42 @@ jobs:
     params:
       build: snort-release-source/ci/docker/pulledpork
 
+- name: update-release-jammy-git
+  plan:
+  - get: snort-jammy-release-source
+    trigger: true
+  - get: jammy-snort-blobs-yml
+  - get: jammy-final-builds-dir-tarball
+  - get: jammy-releases-dir-tarball
+  - task: pulledpork
+    file: snort-jammy-release-source/ci/tasks/jammy-pulledpork.yml
+    params:
+      OINKCODE: ((oinkcode))
+      SNORT_VERSION: ((snort-version))
+  - task: update-blobs
+    file: snort-jammy-release-source/ci/tasks/jammy-update-release.yml
+    tags: [iaas]
+    params:
+      PRIVATE_YML: ((private-yml))
+      FORCE_UPDATE: 1
+  - in_parallel:
+    - put: jammy-snort-blobs-yml
+      tags: [iaas]
+      params:
+        file: jammy-snort-bosh-source/config/blobs.yml
+    - put: jammy-release-tarball
+      tags: [iaas]
+      params:
+        file: finalized-release/jammy-snort-*.tgz
+    - put: jammy-final-builds-dir-tarball
+      tags: [iaas]
+      params:
+        file: finalized-release/final-builds-dir-jammy-snort.tgz
+    - put: jammy-releases-dir-tarball
+      tags: [iaas]
+      params:
+        file: finalized-release/releases-dir-jammy-snort.tgz
+
 - name: update-release-git
   plan:
   - get: snort-release-source
@@ -94,6 +130,13 @@ resources:
     branch: ((snort-release-branch))
     commit_verification_keys: ((cloud-gov-pgp-keys))
 
+- name: snort-jammy-release-source
+  type: git
+  source:
+    uri: ((snort-release-uri))
+    branch: ((snort-release-jammy-branch))
+    commit_verification_keys: ((cloud-gov-pgp-keys))
+
 - name: docker-image-repo
   type: docker-image
   source:
@@ -110,12 +153,44 @@ resources:
     versioned_file: snort-blobs.yml
     server_side_encryption: AES256
 
+- name: jammy-snort-blobs-yml
+  type: s3-iam
+  source:
+    region_name: ((s3-bosh-releases-region))
+    bucket: ((s3-bosh-releases-bucket))
+    versioned_file: jammy-snort-blobs.yml
+    server_side_encryption: AES256
+
 - name: release-tarball
   type: s3-iam
   source:
     region_name: ((s3-bosh-releases-region))
     bucket: ((s3-bosh-releases-bucket))
     regexp: snort-(.*).tgz
+    server_side_encryption: AES256
+
+- name: jammy-release-tarball
+  type: s3-iam
+  source:
+    region_name: ((s3-bosh-releases-region))
+    bucket: ((s3-bosh-releases-bucket))
+    regexp: jammy-snort-(.*).tgz
+    server_side_encryption: AES256
+
+- name: jammy-final-builds-dir-tarball
+  type: s3-iam
+  source:
+    bucket: ((s3-bosh-releases-bucket))
+    versioned_file: final-builds-dir-jammy-snort.tgz
+    region_name: ((s3-bosh-releases-region))
+    server_side_encryption: AES256
+
+- name: jammy-releases-dir-tarball
+  type: s3-iam
+  source:
+    bucket: ((s3-bosh-releases-bucket))
+    versioned_file: releases-dir-jammy-snort.tgz
+    region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
 - name: final-builds-dir-tarball
