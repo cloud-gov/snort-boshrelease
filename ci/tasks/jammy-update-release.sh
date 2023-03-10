@@ -22,8 +22,8 @@ if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz snort-conf/rul
   bosh-cli -n add-blob snort-conf.tar.gz snort-conf.tar.gz
   bosh-cli -n upload-blobs
 
-  bosh-cli -n create-release --force --final --tarball=./snort.tgz
-  latest_release=$(ls releases/snort/snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
+  bosh-cli -n create-release --force --final --tarball=./jammy-snort.tgz
+  latest_release=$(ls releases/jammy-snort/jammy-snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
   mv snort.tgz ../finalized-release/jammy-snort-${latest_release}.tgz
 else
   touch ../finalized-release/snort-0.tgz
