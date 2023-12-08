@@ -1,8 +1,9 @@
 #!/bin/sh
 
 cat << 'CROND' > /etc/cron.hourly/snort-to-prometheus
-#!/bin/sh
+#!/bin/bash
 
+if [[ -s /var/vcap/jobs/node_exporter/config/snort.msg ]]; then
 tempfile=$(mktemp)
 while IFS= read -r line; do
 cat <<DETECTION >> ${tempfile}
@@ -12,6 +13,7 @@ echo "${line}"
 done < /var/vcap/jobs/node_exporter/config/snort.msg
 
 mv ${tempfile} /var/vcap/jobs/node_exporter/config/$(date +"%FT%H%M%S%S")-snort-alert-detection.prom
+fi
 CROND
 
 chmod +x /etc/cron.hourly/snort-to-prometheus
