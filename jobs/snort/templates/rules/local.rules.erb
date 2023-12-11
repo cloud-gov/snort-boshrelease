@@ -2,6 +2,12 @@
 <%= rule %>
 <% end %>
 
+<% if_link("snort-connection") do |snort_conn| %>
+  <% config.p(snort.suppress_rules, []).each do |rule| "#{rule} #{snort_conn.instance.address}" %>
+<%= rule %>
+  <% end %>
+<% end %>
+
 <% if_link("snort-config") do |config| %>
   <% config.p("snort.rules", []).each do |rule| %>
 <%= rule %>
