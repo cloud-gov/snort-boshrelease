@@ -20,5 +20,3 @@ templates:
 properties:
   snort.rules:
     description: "Custom snort rules"
-  snort_connection:
-    description: "ip of instance to suppress"

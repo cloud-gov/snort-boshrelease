@@ -14,7 +14,3 @@ consumes:
 properties:
   snort.rules:
     description: "Custom snort rules"
-  snort.suppress_rules:
-    description: "rules to suppress"
-  snort_connection:
-    description: ip of instance to supress
