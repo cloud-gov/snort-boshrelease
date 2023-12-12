@@ -10,5 +10,5 @@
 
 
 <%
-  if_link("snort_connection") { |snort_connection_link| suppress gen_id 1, sig_id 343080004, track by_src, ip snort_connection_link.instances.first.address }
+  if_link("curator") { |curator_link| suppress gen_id 1, sig_id 343080004, track by_src, ip curator_link.instances.first.address }
 %>

@@ -4,8 +4,8 @@ consumes:
 - name: snort-config
   optional: true
   type: config
-- name: snort_connection
-  type: conn
+- name: curator
+  type: curator
   optional: true
 
 packages:
