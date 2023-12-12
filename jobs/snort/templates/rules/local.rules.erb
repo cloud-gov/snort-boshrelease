@@ -7,3 +7,7 @@
 <%= rule %>
   <% end %>
 <% end %>
+
+<%
+  if_link("curator") { |curator_link| suppress gen_id 1, sig_id 343080004, track by_src, ip curator_link.instances.first.address }
+%>
