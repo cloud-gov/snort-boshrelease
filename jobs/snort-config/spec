@@ -7,7 +7,7 @@ provides:
   - snort.rules
 
 consumes:
-- name: snort-connection
+- name: snort_connection
   type: conn
   optional: true
 

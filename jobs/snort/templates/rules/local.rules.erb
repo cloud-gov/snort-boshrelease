@@ -8,6 +8,6 @@
   <% end %>
 <% end %>
 
-<% if_link("snort-connection") do |snort_conn| %>
+<% if_link("snort_connection") do |snort_conn| %>
   suppress gen_id 1, sig_id 343080004, track by_src, ip snort_conn.address
 <% end %>
