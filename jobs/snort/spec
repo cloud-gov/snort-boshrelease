@@ -1,9 +1,13 @@
 ---
 name: snort
 consumes:
-- name: snort-connection
+- name: snort-config
   optional: true
   type: config
+- name: snort-connection
+  type: conn
+  optional: true
+
 packages:
 - snort
 templates:
