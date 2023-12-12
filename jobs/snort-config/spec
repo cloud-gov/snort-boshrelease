@@ -5,7 +5,8 @@ provides:
   type: config
   properties:
   - snort.rules
-  - snort_connection
+- name: snort-connection
+  type: conn
 
 consumes:
 - name: snort_connection
