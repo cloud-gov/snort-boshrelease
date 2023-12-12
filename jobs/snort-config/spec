@@ -5,8 +5,11 @@ provides:
   type: config
   properties:
   - snort.rules
+
+consumes:
 - name: snort-connection
   type: conn
+  optional: true
 
 properties:
   snort.rules:
