@@ -1,7 +1,7 @@
 ---
 name: snort
 consumes:
-- name: snort-config
+- name: snort-connection
   optional: true
   type: config
 packages:
@@ -16,7 +16,5 @@ templates:
 properties:
   snort.rules:
     description: "Custom snort rules"
-  snort.suppress_rules:
-    description: "rules to suppress"
   snort-connection:
     description: "ip of instance to suppress"
