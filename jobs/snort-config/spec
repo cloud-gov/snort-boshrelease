@@ -6,11 +6,6 @@ provides:
   properties:
   - snort.rules
 
-consumes:
-- name: snort_connection
-  type: conn
-  optional: true
-
 properties:
   snort.rules:
     description: "Custom snort rules"
