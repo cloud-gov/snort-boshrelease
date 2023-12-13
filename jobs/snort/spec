@@ -4,6 +4,9 @@ consumes:
 - name: snort-config
   optional: true
   type: config
+- name: curator
+  type: curator
+  optional: true
 packages:
 - snort
 templates:
