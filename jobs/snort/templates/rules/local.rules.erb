@@ -11,8 +11,5 @@
 <%
   curator_ip = nil
   if_link("curator") { |curator_link| curator_ip = curator_link.instances.first.address }
-  unless curator_ip
-    curator_ip = '0.0.0.0'
-  end
 %>
 <% if curator_ip %>suppress gen_id 1, sig_id 343080004, track by_src, ip <%= curator_ip %> <% end %>
