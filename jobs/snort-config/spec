@@ -5,7 +5,6 @@ provides:
   type: config
   properties:
   - snort.rules
-
 properties:
   snort.rules:
     description: "Custom snort rules"
