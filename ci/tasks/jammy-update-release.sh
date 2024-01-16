@@ -26,7 +26,7 @@ if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz snort-conf/rul
   latest_release=$(ls releases/jammy-snort/jammy-snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
   mv jammy-snort.tgz ../finalized-release/jammy-snort-${latest_release}.tgz
 else
-  touch ../finalized-release/snort-0.tgz
+  touch ../finalized-release/jammy-snort-0.tgz
 fi
 
 tar -czhf ../finalized-release/final-builds-dir-jammy-${RELEASE_NAME}.tgz .final_builds
