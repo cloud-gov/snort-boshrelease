@@ -2,11 +2,11 @@
 jobs:
 - name: update-pulledpork-docker
   plan:
-  - get: snort-release-source
+  - get: snort-jammy-release-source
     trigger: true
   - put: docker-image-repo
     params:
-      build: snort-release-source/ci/docker/pulledpork
+      build: snort-jammy-release-source/ci/docker/pulledpork
 
 - name: update-release-jammy-git
   plan:
@@ -44,91 +44,51 @@ jobs:
       params:
         file: finalized-release/releases-dir-jammy-snort.tgz
 
-- name: update-release-git
-  plan:
-  - get: snort-release-source
-    trigger: true
-  - get: snort-blobs-yml
-  - get: final-builds-dir-tarball
-  - get: releases-dir-tarball
-  - task: pulledpork
-    file: snort-release-source/ci/tasks/pulledpork.yml
-    params:
-      OINKCODE: ((oinkcode))
-      SNORT_VERSION: ((snort-version))
-  - task: update-blobs
-    file: snort-release-source/ci/tasks/update-release.yml
-    tags: [iaas]
-    params:
-      PRIVATE_YML: ((private-yml))
-      FORCE_UPDATE: 1
-  - in_parallel:
-    - put: snort-blobs-yml
-      tags: [iaas]
-      params:
-        file: snort-bosh-source/config/blobs.yml
-    - put: release-tarball
-      tags: [iaas]
-      params:
-        file: finalized-release/snort-*.tgz
-    - put: final-builds-dir-tarball
-      tags: [iaas]
-      params:
-        file: finalized-release/final-builds-dir-snort.tgz
-    - put: releases-dir-tarball
-      tags: [iaas]
-      params:
-        file: finalized-release/releases-dir-snort.tgz
 
-- name: update-release-rules
+- name: update-release-jammy-rules
   plan:
   - get: timer
     trigger: true
-  - get: snort-release-source
-  - get: snort-blobs-yml
-  - get: final-builds-dir-tarball
-  - get: releases-dir-tarball
+  - get: snort-jammy-release-source
+  - get: jammy-snort-blobs-yml
+  - get: jammy-final-builds-dir-tarball
+  - get: jammy-releases-dir-tarball
   - task: pulledpork
-    file: snort-release-source/ci/tasks/pulledpork.yml
+    file: snort-jammy-release-source/ci/tasks/jammy-pulledpork.yml
     params:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
+    file: snort-jammy-release-source/ci/tasks/jammy-update-release.yml
     tags: [iaas]
-    file: snort-release-source/ci/tasks/update-release.yml
     params:
       PRIVATE_YML: ((private-yml))
       FORCE_UPDATE: 0
   - in_parallel:
-    - put: snort-blobs-yml
+    - put: jammy-snort-blobs-yml
       tags: [iaas]
       params:
-        file: snort-bosh-source/config/blobs.yml
-    - put: release-tarball
+        file: jammy-snort-bosh-source/config/blobs.yml
+    - put: jammy-release-tarball
       tags: [iaas]
       params:
-        file: finalized-release/snort-*.tgz
-    - put: final-builds-dir-tarball
+        file: finalized-release/jammy-snort-*.tgz
+    - put: jammy-final-builds-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/final-builds-dir-snort.tgz
-    - put: releases-dir-tarball
+        file: finalized-release/final-builds-dir-jammy-snort.tgz
+    - put: jammy-releases-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/releases-dir-snort.tgz
+        file: finalized-release/releases-dir-jammy-snort.tgz
+
+
 
 resources:
 - name: timer
   type: time
   source:
     interval: 1h
-
-- name: snort-release-source
-  type: git
-  source:
-    uri: ((snort-release-uri))
-    branch: ((snort-release-branch))
-    commit_verification_keys: ((cloud-gov-pgp-keys))
 
 - name: snort-jammy-release-source
   type: git
@@ -145,13 +105,6 @@ resources:
     password: ((docker-password))
     repository: ((docker-repository))
 
-- name: snort-blobs-yml
-  type: s3-iam
-  source:
-    region_name: ((s3-bosh-releases-region))
-    bucket: ((s3-bosh-releases-bucket))
-    versioned_file: snort-blobs.yml
-    server_side_encryption: AES256
 
 - name: jammy-snort-blobs-yml
   type: s3-iam
@@ -161,13 +114,6 @@ resources:
     versioned_file: jammy-snort-blobs.yml
     server_side_encryption: AES256
 
-- name: release-tarball
-  type: s3-iam
-  source:
-    region_name: ((s3-bosh-releases-region))
-    bucket: ((s3-bosh-releases-bucket))
-    regexp: snort-(.*).tgz
-    server_side_encryption: AES256
 
 - name: jammy-release-tarball
   type: s3-iam
@@ -193,21 +139,6 @@ resources:
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
-- name: final-builds-dir-tarball
-  type: s3-iam
-  source:
-    bucket: ((s3-bosh-releases-bucket))
-    versioned_file: final-builds-dir-snort.tgz
-    region_name: ((s3-bosh-releases-region))
-    server_side_encryption: AES256
-
-- name: releases-dir-tarball
-  type: s3-iam
-  source:
-    bucket: ((s3-bosh-releases-bucket))
-    versioned_file: releases-dir-snort.tgz
-    region_name: ((s3-bosh-releases-region))
-    server_side_encryption: AES256
 
 resource_types:
 - name: s3-iam
