@@ -27,7 +27,6 @@ if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz snort-conf/rul
   mv jammy-snort.tgz ../finalized-release/jammy-snort-${latest_release}.tgz
 else
   touch ../finalized-release/jammy-snort-0.tgz
-  
 fi
 
 tar -czhf ../finalized-release/final-builds-dir-jammy-${RELEASE_NAME}.tgz .final_builds
