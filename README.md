@@ -6,7 +6,7 @@ To use this bosh release, first upload it to your bosh:
 
 ```
 bosh target BOSH_HOST
-git clone https://github.com/cloudfoundry-community/cg-snort-boshrelease.git
+git clone https://github.com/cloud-gov/cg-snort-boshrelease.git
 cd cg-snort-boshrelease
 bosh upload release releases/cg-snort-1.yml
 ```
