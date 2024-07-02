@@ -1,4 +1,6 @@
-FROM perl:latest
+ARG base_image
+
+FROM ${base_image}
 
 WORKDIR /opt
 
