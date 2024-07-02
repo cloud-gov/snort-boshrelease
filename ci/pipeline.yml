@@ -44,8 +44,6 @@ jobs:
       params:
         file: finalized-release/releases-dir-jammy-snort.tgz
 
-
-
 - name: update-release-rules
   plan:
   - get: timer
@@ -60,7 +58,6 @@ jobs:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
-
     file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
@@ -84,10 +81,6 @@ jobs:
       params:
         file: finalized-release/releases-dir-jammy-snort.tgz
 
-
-
-
-
 resources:
 - name: timer
   type: time
@@ -109,7 +102,6 @@ resources:
     password: ((docker-password))
     repository: ((docker-repository))
 
-
 - name: snort-blobs-yml
   type: s3-iam
   source:
@@ -117,8 +109,6 @@ resources:
     bucket: ((s3-bosh-releases-bucket))
     versioned_file: jammy-snort-blobs.yml
     server_side_encryption: AES256
-
-
 
 - name: release-tarball
   type: s3-iam
@@ -143,7 +133,6 @@ resources:
     versioned_file: releases-dir-jammy-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
-
 
 resource_types:
 - name: s3-iam
