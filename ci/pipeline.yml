@@ -2,85 +2,85 @@
 jobs:
 - name: update-pulledpork-docker
   plan:
-  - get: snort-jammy-release-source
+  - get: snort-release-source
     trigger: true
   - put: docker-image-repo
     params:
-      build: snort-jammy-release-source/ci/docker/pulledpork
+      build: snort-release-source/ci/docker/pulledpork
 
-- name: update-release-jammy-git
+- name: update-release-git
   plan:
-  - get: snort-jammy-release-source
+  - get: snort-release-source
     trigger: true
-  - get: jammy-snort-blobs-yml
-  - get: jammy-final-builds-dir-tarball
-  - get: jammy-releases-dir-tarball
+  - get: snort-blobs-yml
+  - get: final-builds-dir-tarball
+  - get: releases-dir-tarball
   - task: pulledpork
-    file: snort-jammy-release-source/ci/tasks/jammy-pulledpork.yml
+    file: snort-release-source/ci/tasks/pulledpork.yml
     params:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
-    file: snort-jammy-release-source/ci/tasks/jammy-update-release.yml
+    file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
       PRIVATE_YML: ((private-yml))
       FORCE_UPDATE: 1
   - in_parallel:
-    - put: jammy-snort-blobs-yml
+    - put: snort-blobs-yml
       tags: [iaas]
       params:
-        file: jammy-snort-bosh-source/config/blobs.yml
-    - put: jammy-release-tarball
+        file: snort-bosh-source/config/blobs.yml
+    - put: release-tarball
       tags: [iaas]
       params:
-        file: finalized-release/jammy-snort-*.tgz
-    - put: jammy-final-builds-dir-tarball
+        file: finalized-release/snort-*.tgz
+    - put: final-builds-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/final-builds-dir-jammy-snort.tgz
-    - put: jammy-releases-dir-tarball
+        file: finalized-release/final-builds-dir-snort.tgz
+    - put: releases-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/releases-dir-jammy-snort.tgz
+        file: finalized-release/releases-dir-snort.tgz
 
 
-- name: update-release-jammy-rules
+- name: update-release-rules
   plan:
   - get: timer
     trigger: true
-  - get: snort-jammy-release-source
-  - get: jammy-snort-blobs-yml
-  - get: jammy-final-builds-dir-tarball
-  - get: jammy-releases-dir-tarball
+  - get: snort-release-source
+  - get: snort-blobs-yml
+  - get: final-builds-dir-tarball
+  - get: releases-dir-tarball
   - task: pulledpork
-    file: snort-jammy-release-source/ci/tasks/jammy-pulledpork.yml
+    file: snort-release-source/ci/tasks/pulledpork.yml
     params:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
-    file: snort-jammy-release-source/ci/tasks/jammy-update-release.yml
+    file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
       PRIVATE_YML: ((private-yml))
       FORCE_UPDATE: 0
   - in_parallel:
-    - put: jammy-snort-blobs-yml
+    - put: snort-blobs-yml
       tags: [iaas]
       params:
-        file: jammy-snort-bosh-source/config/blobs.yml
-    - put: jammy-release-tarball
+        file: snort-bosh-source/config/blobs.yml
+    - put: release-tarball
       tags: [iaas]
       params:
-        file: finalized-release/jammy-snort-*.tgz
-    - put: jammy-final-builds-dir-tarball
+        file: finalized-release/snort-*.tgz
+    - put: final-builds-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/final-builds-dir-jammy-snort.tgz
-    - put: jammy-releases-dir-tarball
+        file: finalized-release/final-builds-dir-snort.tgz
+    - put: releases-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/releases-dir-jammy-snort.tgz
+        file: finalized-release/releases-dir-snort.tgz
 
 
 
@@ -90,11 +90,11 @@ resources:
   source:
     interval: 1h
 
-- name: snort-jammy-release-source
+- name: release-source
   type: git
   source:
     uri: ((snort-release-uri))
-    branch: ((snort-release-jammy-branch))
+    branch: ((snort-release-branch))
     commit_verification_keys: ((cloud-gov-pgp-keys))
 
 - name: docker-image-repo
@@ -106,36 +106,36 @@ resources:
     repository: ((docker-repository))
 
 
-- name: jammy-snort-blobs-yml
+- name: snort-blobs-yml
   type: s3-iam
   source:
     region_name: ((s3-bosh-releases-region))
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: jammy-snort-blobs.yml
+    versioned_file: snort-blobs.yml
     server_side_encryption: AES256
 
 
-- name: jammy-release-tarball
+- name: release-tarball
   type: s3-iam
   source:
     region_name: ((s3-bosh-releases-region))
     bucket: ((s3-bosh-releases-bucket))
-    regexp: jammy-snort-(.*).tgz
+    regexp: snort-(.*).tgz
     server_side_encryption: AES256
 
-- name: jammy-final-builds-dir-tarball
+- name: final-builds-dir-tarball
   type: s3-iam
   source:
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: final-builds-dir-jammy-snort.tgz
+    versioned_file: final-builds-dir-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
-- name: jammy-releases-dir-tarball
+- name: releases-dir-tarball
   type: s3-iam
   source:
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: releases-dir-jammy-snort.tgz
+    versioned_file: releases-dir-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
