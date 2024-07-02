@@ -34,15 +34,15 @@ jobs:
     - put: release-tarball
       tags: [iaas]
       params:
-        file: finalized-release/snort-*.tgz
+        file: finalized-release/jammy-snort-*.tgz
     - put: final-builds-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/final-builds-dir-snort.tgz
+        file: finalized-release/final-builds-dir-jammy-snort.tgz
     - put: releases-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/releases-dir-snort.tgz
+        file: finalized-release/releases-dir-jammy-snort.tgz
 
 
 
@@ -74,15 +74,15 @@ jobs:
     - put: release-tarball
       tags: [iaas]
       params:
-        file: finalized-release/snort-*.tgz
+        file: finalized-release/jammy-snort-*.tgz
     - put: final-builds-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/final-builds-dir-snort.tgz
+        file: finalized-release/final-builds-dir-jammy-snort.tgz
     - put: releases-dir-tarball
       tags: [iaas]
       params:
-        file: finalized-release/releases-dir-snort.tgz
+        file: finalized-release/releases-dir-jammy-snort.tgz
 
 
 
@@ -115,7 +115,7 @@ resources:
   source:
     region_name: ((s3-bosh-releases-region))
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: snort-blobs.yml
+    versioned_file: jammy-snort-blobs.yml
     server_side_encryption: AES256
 
 
@@ -125,14 +125,14 @@ resources:
   source:
     region_name: ((s3-bosh-releases-region))
     bucket: ((s3-bosh-releases-bucket))
-    regexp: snort-(.*).tgz
+    regexp: jammy-snort-(.*).tgz
     server_side_encryption: AES256
 
 - name: final-builds-dir-tarball
   type: s3-iam
   source:
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: final-builds-dir-snort.tgz
+    versioned_file: final-builds-dir-jammy-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
@@ -140,7 +140,7 @@ resources:
   type: s3-iam
   source:
     bucket: ((s3-bosh-releases-bucket))
-    versioned_file: releases-dir-snort.tgz
+    versioned_file: releases-dir-jammy-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
 
