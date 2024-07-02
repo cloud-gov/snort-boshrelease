@@ -14,6 +14,7 @@ jobs:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
+    image: general-task
     file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
@@ -51,6 +52,7 @@ jobs:
       OINKCODE: ((oinkcode))
       SNORT_VERSION: ((snort-version))
   - task: update-blobs
+    image: general-task
     file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
