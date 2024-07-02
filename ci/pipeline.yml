@@ -90,7 +90,7 @@ resources:
   source:
     interval: 1h
 
-- name: release-source
+- name: snort-release-source
   type: git
   source:
     uri: ((snort-release-uri))
