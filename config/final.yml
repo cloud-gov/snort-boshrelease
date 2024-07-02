@@ -4,4 +4,4 @@ blobstore:
   options:
     bucket_name: cloud-gov-release-blobstore
     region: us-gov-west-1
-final_name: jammy-snort
+final_name: snort
