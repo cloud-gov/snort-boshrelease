@@ -4,6 +4,9 @@ FROM ${base_image}
 
 WORKDIR /opt
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl
+
 RUN curl -L http://cpanmin.us | perl - App::cpanminus
 RUN cpanm LWP::UserAgent
 RUN cpanm --force Crypt::SSLeay
