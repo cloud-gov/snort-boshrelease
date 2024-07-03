@@ -7,7 +7,8 @@ WORKDIR /opt
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     build-essential \
-    libssl-dev
+    libssl-dev \
+    zlib1g-dev
 
 RUN curl -L http://cpanmin.us | perl - App::cpanminus
 RUN cpanm LWP::UserAgent
