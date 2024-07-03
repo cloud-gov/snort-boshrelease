@@ -1,25 +1,48 @@
----
-daq-2.0.6.tar.gz:
-  object_id: cc31755e-7d3f-43e3-93ec-a4ce43caefa7
-  sha: ec0ebfcd4568a3e4e58c774982c808c414dd71bc
-  size: 514687
-libdnet-1.12.tar.gz:
-  object_id: 33571043-c9aa-4220-b795-545fd976f442
-  sha: 3ce046cde6e1872ccef3920923a768e6556b4cde
-  size: 959945
-libpcap-1.7.4.tar.gz:
-  object_id: f4449413-7c94-4b1f-b829-0c65297dc0db
-  sha: 3f31a7706c1487fca36b8379e511965a8d7cbd70
-  size: 663021
-pcre-8.38.tar.gz:
-  object_id: af744a50-39fd-417c-880b-532bd498feea
-  sha: 3ab418d0026c2a4e693ec783bd60660debc32b8f
-  size: 2053336
-snort-2.9.8.2.tar.gz:
-  object_id: 4ef28f7c-71d4-46b6-b328-c4752f9f465a
-  sha: ac344132f3e09e035a07a2c8b7d7381539d4a90f
-  size: 6311793
+LuaJIT-2.0.5.tar.gz:
+  size: 849845
+  object_id: df4712a6-58fb-4dd4-4313-a4c64c614b5c
+  sha: sha256:874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979
+check-0.15.2.tar.gz:
+  size: 774985
+  object_id: b44b6ce1-236f-4746-7a68-5df14dbecc69
+  sha: sha256:a8de4e0bacfb4d76dd1c618ded263523b53b85d92a146d8835eb1a52932fa20a
+daq-2.0.7.tar.gz:
+  size: 515154
+  object_id: ffa84796-fe70-4825-4fcf-415f105c3bf9
+  sha: sha256:d1f6709bc5dbddee3fdf170cdc1e49fb926e2031d4869ecf367a8c47efc87279
+libdnet-libdnet-1.16.3.tar.gz:
+  size: 679130
+  object_id: 5aeee3ce-e2c3-48e8-7226-8876bb45aec2
+  sha: sha256:83171a9f6e96d7a5047d6537fce4c376bdf6d867f8d49cf6ba434a0f3f7b45c1
+libpcap-1.10.3.tar.gz:
+  size: 951869
+  object_id: 444f6911-5ddb-4c7e-6811-6214aa17f674
+  sha: sha256:2a8885c403516cf7b0933ed4b14d6caa30e02052489ebd414dc75ac52e7559e6
+libtirpc-1.3.3.tar.gz:
+  size: 715227
+  object_id: 85d7e953-9653-4f2f-6d3b-252774b67dbb
+  sha: sha256:2aa9462441d6d6581b6f1b8817c836440d1fc53772985ad5a992a1b25bbb6aae
+nghttp2-1.52.0.tar.gz:
+  size: 2273312
+  object_id: 8a13e486-ba83-4c1f-5853-0ed9b0bf0e21
+  sha: sha256:9877caa62bd72dde1331da38ce039dadb049817a01c3bdee809da15b754771b8
+pcre-8.45.tar.gz:
+  size: 2096552
+  object_id: a63b7c12-1ee8-4338-6755-0a5dbe9a8a56
+  sha: sha256:4e6ce03e0336e8b4a3d6c2b70b1c5e18590a5673a98186da90d4f33c23defc09
+pkg-config-0.29.2.tar.gz:
+  size: 2016830
+  object_id: 119a7aa8-530d-4943-48d9-ecd1d18d7336
+  sha: sha256:6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591
+snort-2.9.20.tar.gz:
+  size: 7009894
+  object_id: c9b02377-28bd-4e53-7391-9ee5d19c62c4
+  sha: sha256:29400e13f53b1831e0b8b10ec1224a1cbaa6dc1533a5322a20dd80bb84b4981c
 snort-conf.tar.gz:
+  size: 275266
   object_id: eca1e414-45fb-4622-9a65-2c1e5ea69760
   sha: ca0ef463abe50a0ba84ca3171dd87bf99fd2e777
-  size: 275266
+zlib-1.2.13.tar.gz:
+  size: 1497445
+  object_id: e3a366f0-8950-4e4f-5206-3f0266f55086
+  sha: sha256:b3a24de97a8fdbc835b9833169501030b8977031bcb54b3b3ac13740f846ab30

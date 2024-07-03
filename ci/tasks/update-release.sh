@@ -10,10 +10,10 @@ EOF
 
 RELEASE_NAME=`ls releases`
 
-cp ../snort-blobs-yml/snort-blobs.yml config/blobs.yml
+cp ../snort-blobs-yml/jammy-snort-blobs.yml config/blobs.yml
 
-tar -zxf ../final-builds-dir-tarball/final-builds-dir-${RELEASE_NAME}.tgz
-tar -zxf ../releases-dir-tarball/releases-dir-${RELEASE_NAME}.tgz
+tar -zxf ../final-builds-dir-tarball/final-builds-dir-jammy-${RELEASE_NAME}.tgz
+tar -zxf ../releases-dir-tarball/releases-dir-jammy-${RELEASE_NAME}.tgz
 
 bosh-cli -n sync-blobs
 tar czvf snort-conf.tar.gz -C ci/config snort-conf
@@ -22,14 +22,14 @@ if [ "$FORCE_UPDATE" -eq "1" ] || [ "$(tar -xOf snort-conf.tar.gz snort-conf/rul
   bosh-cli -n add-blob snort-conf.tar.gz snort-conf.tar.gz
   bosh-cli -n upload-blobs
 
-  bosh-cli -n create-release --force --final --tarball=./snort.tgz
-  latest_release=$(ls releases/snort/snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
-  mv snort.tgz ../finalized-release/snort-${latest_release}.tgz
+  bosh-cli -n create-release --force --final --tarball=./jammy-snort.tgz
+  latest_release=$(ls releases/jammy-snort/jammy-snort*.yml | grep -oe '[0-9.]\+.yml' | sed -e 's/\.yml$//' | sort -V | tail -1)
+  mv jammy-snort.tgz ../finalized-release/jammy-snort-${latest_release}.tgz
 else
-  touch ../finalized-release/snort-0.tgz
+  touch ../finalized-release/jammy-snort-0.tgz
 fi
 
-tar -czhf ../finalized-release/final-builds-dir-${RELEASE_NAME}.tgz .final_builds
-tar -czhf ../finalized-release/releases-dir-${RELEASE_NAME}.tgz releases
+tar -czhf ../finalized-release/final-builds-dir-jammy-${RELEASE_NAME}.tgz .final_builds
+tar -czhf ../finalized-release/releases-dir-jammy-${RELEASE_NAME}.tgz releases
 
 cp -r . ../snort-bosh-source
