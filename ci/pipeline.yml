@@ -8,6 +8,7 @@ jobs:
   - get: snort-blobs-yml
   - get: final-builds-dir-tarball
   - get: releases-dir-tarball
+  - get: general-task
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
@@ -46,6 +47,7 @@ jobs:
   - get: snort-blobs-yml
   - get: final-builds-dir-tarball
   - get: releases-dir-tarball
+  - get: general-task
   - task: pulledpork
     file: snort-release-source/ci/tasks/pulledpork.yml
     params:
