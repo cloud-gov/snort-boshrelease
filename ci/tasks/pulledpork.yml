@@ -2,9 +2,13 @@
 platform: linux
 
 image_resource:
-  type: docker-image
+  type: registry-image
   source:
-    repository: 18fgsa/pulledpork
+    aws_access_key_id: ((ecr_aws_key))
+    aws_secret_access_key: ((ecr_aws_secret))
+    repository: pulledpork
+    aws_region: us-gov-west-1
+    tag: latest
 
 inputs:
 - name: snort-release-source
