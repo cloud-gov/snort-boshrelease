@@ -98,6 +98,7 @@ resources:
     bucket: ((s3-bosh-releases-bucket))
     versioned_file: jammy-snort-blobs.yml
     server_side_encryption: AES256
+    endpoint: s3-fips.((s3-bosh-releases-region)).amazonaws.com
 
 - name: release-tarball
   type: s3-iam
@@ -106,6 +107,7 @@ resources:
     bucket: ((s3-bosh-releases-bucket))
     regexp: jammy-snort-(.*).tgz
     server_side_encryption: AES256
+    endpoint: s3-fips.((s3-bosh-releases-region)).amazonaws.com
 
 - name: final-builds-dir-tarball
   type: s3-iam
@@ -114,6 +116,7 @@ resources:
     versioned_file: final-builds-dir-jammy-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
+    endpoint: s3-fips.((s3-bosh-releases-region)).amazonaws.com
 
 - name: releases-dir-tarball
   type: s3-iam
@@ -122,6 +125,7 @@ resources:
     versioned_file: releases-dir-jammy-snort.tgz
     region_name: ((s3-bosh-releases-region))
     server_side_encryption: AES256
+    endpoint: s3-fips.((s3-bosh-releases-region)).amazonaws.com
 
 - name: general-task
   type: registry-image
