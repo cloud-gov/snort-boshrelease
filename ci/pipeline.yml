@@ -102,7 +102,7 @@ resources:
 - name: snort-release-source
   type: git
   source:
-    uri: https://github.com/cloud-gov/cg-snort-boshrelease
+    uri: https://github.com/cloud-gov/snort-boshrelease
     branch: ((snort-release-branch))
     commit_verification_keys: ((cloud-gov-pgp-keys))
 
