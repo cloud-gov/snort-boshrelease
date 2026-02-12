@@ -1,10 +1,18 @@
 ---
 jobs:
 
+- name: set-self
+  plan:
+    - get: snort-release-source
+      trigger: true
+    - set_pipeline: self
+      file: snort-release-source/ci/pipeline.yml
+
 - name: update-release-git
   plan:
   - get: snort-release-source
     trigger: true
+    passed: [set-self]
   - get: snort-blobs-yml
   - get: final-builds-dir-tarball
   - get: releases-dir-tarball
@@ -19,7 +27,14 @@ jobs:
     file: snort-release-source/ci/tasks/update-release.yml
     tags: [iaas]
     params:
-      PRIVATE_YML: ((private-yml))
+      PRIVATE_YML: |-
+        ---
+        blobstore:
+          options:
+            server_side_encryption: ((s3-bosh-blobstore-info.server_side_encryption))
+            region: ((s3-bosh-blobstore-info.region))
+            bucket_name: ((s3-bosh-blobstore-info.bucket_name))
+            credentials_source: ((s3-bosh-blobstore-info.credentials_source))
       FORCE_UPDATE: 1
   - in_parallel:
     - put: snort-blobs-yml
@@ -87,7 +102,7 @@ resources:
 - name: snort-release-source
   type: git
   source:
-    uri: ((snort-release-uri))
+    uri: https://github.com/cloud-gov/cg-snort-boshrelease
     branch: ((snort-release-branch))
     commit_verification_keys: ((cloud-gov-pgp-keys))
 
